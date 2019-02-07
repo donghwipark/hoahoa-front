@@ -1,11 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+   StyleSheet,
+   Text,
+   View,
+   Image,
+   TouchableHighlight,
+} from 'react-native';
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Hello World! this is Hoa?Hoa!</Text>
+        <Image 
+          style={{width:400, height:200}}
+          source={require('./assets/splash.png')}
+        />
+        <View style={styles.login}>
+          <Text>Sign in</Text>
+        </View>
       </View>
     );
   }
@@ -13,9 +25,10 @@ export default class App extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor:"#fff",
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+  },
+  login: {
   },
 });
