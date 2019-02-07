@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Hoahoa",
+    "icon": "./assets/icon.png",
+    "version": "1.0.0",
+    "slug": "hoahoa",
+    "sdkVersion": "32.0.0",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "bundleIdentifier": "www.eastlead.org"
+    },
+    "android": {
+      "package": "www.eastlead.org"
+    }
+  }
+}
