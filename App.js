@@ -6,6 +6,8 @@ import {
    Image,
    TouchableHighlight,
 } from 'react-native';
+import FacebookButton from './facebookButton'
+
 
 export default class App extends React.Component {
   render() {
@@ -18,6 +20,7 @@ export default class App extends React.Component {
         <View style={styles.login}>
           <Text>Sign in</Text>
         </View>
+        <FacebookButton/>
       </View>
     );
   }
