@@ -5,16 +5,16 @@ import {
   Text,
   StyleSheet,
 } from 'react-native'
-import {FontAwesome} from '@expo/vector-icons'
+import Ionicons from '@expo/vector-icons/Ionicons';
 
-export default class FacebookButton extends React.Component {
+export default class KakaotalkButton extends React.Component {
   render () {
     return (
       <TouchableHighlight 
         style={styles.button}>
         <View style={styles.buttoncontainer}>
-          <FontAwesome name="facebook" size={20} color={'white'}/>
-          <Text style={styles.buttonText}>Login with Facebook</Text>
+          <Ionicons name="ios-chatbubbles" size={20} color={'black'}/>
+          <Text style={styles.buttonText}>Login with Kakaotalk</Text>
         </View>
       </TouchableHighlight>
     )  
@@ -25,10 +25,10 @@ const styles = StyleSheet.create({
   button: {
     height:40,
     width:220,
-    backgroundColor:"#3b5998",
+    backgroundColor:"#fef01b",
     flexDirection:'column',
-    borderRadius: 50, 
-    marginBottom: 5, 
+
+    borderRadius: 50,  
   },
   buttoncontainer: {
     flex:1,
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent:'center'  
   },
   buttonText: {
-    color : 'white',
+    color : 'black',
     fontSize:15,
     marginLeft:15 
   } 
