@@ -8,10 +8,13 @@ import {
 import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default class KakaotalkButton extends React.Component {
+  login() {this.props.navigation.navigate('Home')}
   render () {
     return (
       <TouchableHighlight 
-        style={styles.button}>
+        style={styles.button}
+        onPress={this.props.onPress}
+        >
         <View style={styles.buttoncontainer}>
           <Ionicons name="ios-chatbubbles" size={20} color={'black'}/>
           <Text style={styles.buttonText}>Login with Kakaotalk</Text>

@@ -8,10 +8,13 @@ import {
 import {FontAwesome} from '@expo/vector-icons'
 
 export default class FacebookButton extends React.Component {
+  login() {this.props.navigation.navigate('Home')}
   render () {
     return (
       <TouchableHighlight 
-        style={styles.button}>
+        style={styles.button}
+        onPress={this.props.onPress}
+        >
         <View style={styles.buttoncontainer}>
           <FontAwesome name="facebook" size={20} color={'white'}/>
           <Text style={styles.buttonText}>Login with Facebook</Text>
