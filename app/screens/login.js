@@ -7,12 +7,13 @@ import {
 } from 'react-native';
 import FacebookButton from '../components/facebookButton'
 import KakaotalkButton from '../components/kakaotalkButton'
-
+import SignIn from '../components/signIn';
 
 export default class Login extends React.Component {
   login = () => {
     this.props.navigation.navigate('Home')
   }
+
 
   render() {
     return (
@@ -22,7 +23,7 @@ export default class Login extends React.Component {
           source={require('../images/icon.png')}
         />
         <View style={styles.login}>
-          <Text>Sign in</Text>
+          <SignIn/>
         </View>
         <View style={styles.facebookButton} >
           <FacebookButton onPress={this.login} />
@@ -42,10 +43,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   login: {
-    backgroundColor: 'white',
+    backgroundColor: '#fff',
     margin: 10,
-    marginTop: 150,
-    marginBottom: 200,
+    marginTop: 100,
+    marginBottom: 20,
     borderWidth: 1,
     borderColor: 'lightgrey',
     borderRadius: 8,

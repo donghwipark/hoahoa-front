@@ -2,7 +2,8 @@ import {createStackNavigator, createAppContainer} from 'react-navigation'
 //import * as firebase from 'firebase'
 import Home from './screens/home'
 import Login from './screens/login'
-
+import Setting from './screens/setting'
+import Matches from './screens/matches'
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyD-8l49UiX0H8vLUS28h7KxpdnQXj_tCZU",
@@ -11,13 +12,17 @@ import Login from './screens/login'
 
 // firebase.initializeApp(firebaseConfig)
 
-const RouteConfigs = createStackNavigator({
-  Login: {screen:Login},
-  Home: {screen:Home},
-})
+const RouteConfigs = createStackNavigator(
+  {
+    Login: {screen:Login},
+    Home: {screen:Home},
+    Setting: {screen:Setting},
+    Matches: {screen:Matches},
+  },
+  {
+    headerMode:'none',
+  }
+)
 
-const StackNavigatorConfig = {
-  headerMode:'none',
-}
 
-export default createAppContainer(RouteConfigs, StackNavigatorConfig)
+export default createAppContainer(RouteConfigs)
