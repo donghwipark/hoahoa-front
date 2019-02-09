@@ -6,7 +6,7 @@ import {
    Image,
 } from 'react-native';
 
-export default class Matches extends React.Component {
+export default class Setting extends React.Component {
   render() {
     return (
       <View>

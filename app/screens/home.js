@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-import {View, StyleSheet, Image} from 'react-native'
+import {View, StyleSheet} from 'react-native'
 import Card from '../components/card'
 import HomeMatchesButton from '../components/homeMatchesButton';
 import HomeSettingButton from '../components/homeSettingButton';
@@ -33,13 +33,13 @@ export default class App extends Component {
           <HomeMatchesButton onPress={this.moveMatches}/>
         </View>
         <View>
-            {profiles.slice(profileIndex, profileIndex + 6).reverse().map((profile) => {
+            {profiles.slice(profileIndex, profileIndex + 20).reverse().map((profile) => {
             return (
-                <Card
+              <Card
                 key={profile.id}
                 profile={profile}
                 onSwipeOff={this.nextCard}
-                />
+              />
             )
             })}
         </View>
@@ -61,39 +61,24 @@ const styles = StyleSheet.create({
 
 const profiles = [
   {
-    id: '259389830744794',
-    name: 'Candice',
-    birthday: '10/18/1986',
-    bio: 'Supermodel',
-  },
-  {
-    id: '720115413',
-    name: 'Alessandra',
-    birthday: '1/10/1989',
-    bio: 'Dancer',
-  },
-  {
-    id: '169571172540',
-    name: 'Miranda',
-    birthday: '12/12/1983',
-    bio: 'Doctor',
+    id: '173567062703796',
+    name: '한혜경',
+    birthday: '8/17/1992',
+    bio: '개발자',
+    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/hanleader.png'
   },
   {
     id: '1476279359358140',
-    name: 'Alissa',
-    birthday: '2/11/1990',
-    bio: 'Comedian',
+    name: '김세준',
+    birthday: '8/17/1993',
+    bio: '개발자',
+    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/KimSejun.png'
   },
   {
     id: '912478262117011',
-    name: 'Rosie',
-    birthday: '9/4/1989',
-    bio: 'Artist',
-  },
-  {
-    id: '173567062703796',
-    name: 'Kendall',
-    birthday: '8/17/1992',
-    bio: 'Truck Driver',
+    name: '박동휘',
+    birthday: '8/17/1987',
+    bio: '개발자',
+    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/donghwipark.png'
   },
 ]

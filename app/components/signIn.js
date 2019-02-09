@@ -10,10 +10,8 @@ import {
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome} from '@expo/vector-icons'
 
-
 export default class SignIn extends React.Component {
   state = {
-
     email: '',
     password: ''
   }
@@ -22,6 +20,7 @@ export default class SignIn extends React.Component {
     return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users")
       .then((response) => response.json())
       .then((response) => {
+        console.log(response)
         if ( (response[1].email ===this.state.email) && (response[1].password === this.state.password) ) {
           this.props.onPress()
         } else {
@@ -56,7 +55,7 @@ export default class SignIn extends React.Component {
         <View style={{margin:0}} />
           <TouchableHighlight 
             style={styles.loginButton}
-            onPress={this.props.onPress}>        
+            onPress={this.signIn}>        
             <View style={styles.loginButtoncontainer}>
               <FontAwesome name="sign-in" size={20} color={'#495057'}/>
               <Text style={styles.buttonText}>Login</Text>
