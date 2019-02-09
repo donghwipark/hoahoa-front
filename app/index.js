@@ -4,6 +4,7 @@ import Home from './screens/home'
 import Login from './screens/login'
 import Setting from './screens/setting'
 import Matches from './screens/matches'
+import SignUp from './screens/signup'
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyD-8l49UiX0H8vLUS28h7KxpdnQXj_tCZU",
@@ -18,6 +19,7 @@ const RouteConfigs = createStackNavigator(
     Home: {screen:Home},
     Setting: {screen:Setting},
     Matches: {screen:Matches},
+    SignUp: {screen:SignUp},
   },
   {
     headerMode:'none',

@@ -8,7 +8,7 @@ import {
 import {MaterialCommunityIcons} from '@expo/vector-icons'
 
 export default class signUpButton extends React.Component {
-  login() {this.props.navigation.navigate('Home')}
+  login() {this.props.navigation.navigate('SignUp')}
   render () {
     return (
       <TouchableHighlight 

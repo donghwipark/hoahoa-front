@@ -14,6 +14,9 @@ export default class Login extends React.Component {
   login = () => {
     this.props.navigation.navigate('Home')
   }
+  signUp = () => {
+    this.props.navigation.navigate('SignUp')
+  }
 
 
   render() {
@@ -34,7 +37,7 @@ export default class Login extends React.Component {
         </View>       
         <Text>Don't have any account?</Text>
         <View style={styles.facebookButton} >
-          <SignUpButton onPress={this.login} />
+          <SignUpButton onPress={this.signUp} />
         </View> 
       </View>
     );
