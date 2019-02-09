@@ -7,6 +7,7 @@ import {
   StyleSheet,
   Button
 } from 'react-native';
+import {MaterialCommunityIcons, FontAwesome} from '@expo/vector-icons'
 
 export default class SignIn extends React.Component {
   state = {
@@ -32,30 +33,45 @@ export default class SignIn extends React.Component {
   render () {
     return (
       <View style={{padding: 10}}>
-        <TextInput style = {styles.input}
-          placeholder='Username'
-          onChangeText={(text) => this.setState({email: text})}
+        <View>
+          <View style={styles.buttoncontainer}>
+            <MaterialCommunityIcons name="email" size={20} color={'black'}/>
+            <TextInput style = {styles.input}
+            placeholder='    Username'
+            onChangeText={(text) => this.setState({email: text})}
+            />
+          </View>
+        </View>
+        <View>
+          <View style={styles.buttoncontainer}>
+            <FontAwesome name="user-secret" size={20} color={'black'}/>  
+            <TextInput style = {styles.input}
+              placeholder='    Password'
+              secureTextEntry
+              onChangeText={(text) => this.setState({password: text})}
+            />
+          </View>  
+        <View style={{margin:7}} />
+          <Button
+            color="black" 
+            onPress={this.signIn}
+            title="Sign In"
           />
-        <TextInput style = {styles.input}
-          placeholder='Password'
-          secureTextEntry
-          onChangeText={(text) => this.setState({password: text})}
-        />
-      <View style={{margin:7}} />
-        <Button
-          color="black" 
-          onPress={this.signIn}
-          title="Sign In"
-        />
-      </View>
+        </View>
+      </View>  
     )  
   }
 }
 
 const styles = StyleSheet.create({
+  buttoncontainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center' 
+  },
   input:{
     height: 40,
-    width: 220,
+    width: 200,
     backgroundColor: '#ced4da',
     marginBottom: 10,
     borderRadius: 50, 

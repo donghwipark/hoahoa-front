@@ -35,7 +35,7 @@ export default class Login extends React.Component {
         <View style={styles.kakaotalkButton}>
           <KakaotalkButton onPress={this.login} />
         </View>       
-        <Text>Don't have any account?</Text>
+        <Text style={styles.text}>Don't have any account?</Text>
         <View style={styles.facebookButton} >
           <SignUpButton onPress={this.signUp} />
         </View> 
@@ -66,5 +66,11 @@ const styles = StyleSheet.create({
   },
   kakaotalkButton:{
     alignItems: 'center',
+  },
+  text:{
+    alignItems: 'center',
+    justifyContent:'center', 
+    marginBottom: 15,
+    marginTop: 15
   }
 });
