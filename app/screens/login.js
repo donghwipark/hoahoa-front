@@ -8,6 +8,7 @@ import {
 import FacebookButton from '../components/facebookButton'
 import KakaotalkButton from '../components/kakaotalkButton'
 import SignIn from '../components/signIn';
+import SignUpButton from '../components/signUpButton';
 
 export default class Login extends React.Component {
   login = () => {
@@ -31,6 +32,10 @@ export default class Login extends React.Component {
         <View style={styles.kakaotalkButton}>
           <KakaotalkButton onPress={this.login} />
         </View>       
+        <Text>Don't have any account?</Text>
+        <View style={styles.facebookButton} >
+          <SignUpButton onPress={this.login} />
+        </View> 
       </View>
     );
   }
