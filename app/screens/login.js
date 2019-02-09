@@ -23,7 +23,7 @@ export default class Login extends React.Component {
           source={require('../images/icon.png')}
         />
         <View style={styles.login}>
-          <SignIn/>
+          <SignIn onPress={this.login}/>
         </View>
         <View style={styles.facebookButton} >
           <FacebookButton onPress={this.login} />
@@ -44,12 +44,11 @@ const styles = StyleSheet.create({
   },
   login: {
     backgroundColor: '#fff',
-    margin: 10,
-    marginTop: 100,
+    //margin: 10,
+    marginTop: 20,
     marginBottom: 20,
-    borderWidth: 1,
+    borderWidth: 0,
     borderColor: 'lightgrey',
-    borderRadius: 8,
     justifyContent:'center' , 
     alignItems: 'center',
 

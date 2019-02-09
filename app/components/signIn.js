@@ -9,37 +9,42 @@ import {
 } from 'react-native';
 
 export default class SignIn extends React.Component {
-  getTextInput = () => {
-    const payload = {
-      name: this.name
-    }  
-    console.log(payload)  
-  } 
+  state = {
+
+    email: '',
+    password: ''
+  }
 
   signIn = () => {
     return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users")
       .then((response) => response.json())
-      .then((response) => console.log(response))
+      .then((response) => {
+        if ( (response[1].email ===this.state.email) && (response[1].password === this.state.password) ) {
+          this.props.onPress()
+        } else {
+          alert('Email or password is wrong')
+        }
+      })
       .catch((error) => {
-      console.error(error)  
+        console.error(error)  
     })
   }
   render () {
     return (
       <View style={{padding: 10}}>
-
         <TextInput style = {styles.input}
-                     placeholder='Username'
-                     onChangeText={(text) => this.name = text}             
+          placeholder='Username'
+          onChangeText={(text) => this.setState({email: text})}
+          />
+        <TextInput style = {styles.input}
+          placeholder='Password'
+          secureTextEntry
+          onChangeText={(text) => this.setState({password: text})}
         />
-
-        <TextInput style = {styles.input}
-                     placeholder='Password' />
-
       <View style={{margin:7}} />
         <Button
           color="black" 
-          onPress={this.getTextInput}
+          onPress={this.signIn}
           title="Sign In"
         />
       </View>
@@ -48,12 +53,12 @@ export default class SignIn extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  
   input:{
-    height: 10,
-    backgroundColor: 'rgba(225,225,225,0.2)',
+    height: 40,
+    width: 220,
+    backgroundColor: '#ced4da',
     marginBottom: 10,
-    padding: 20,
-    color: '#fff'  
+    borderRadius: 50, 
+    //color: 'black'  
   }
 })
