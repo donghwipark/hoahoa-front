@@ -5,9 +5,11 @@ import {
   TextInput,
   ScrollView,
   StyleSheet,
-  Button
+  Button,
+  TouchableHighlight
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome} from '@expo/vector-icons'
+
 
 export default class SignIn extends React.Component {
   state = {
@@ -51,12 +53,15 @@ export default class SignIn extends React.Component {
               onChangeText={(text) => this.setState({password: text})}
             />
           </View>  
-        <View style={{margin:7}} />
-          <Button
-            color="black" 
-            onPress={this.signIn}
-            title="Sign In"
-          />
+        <View style={{margin:0}} />
+          <TouchableHighlight 
+            style={styles.loginButton}
+            onPress={this.props.onPress}>        
+            <View style={styles.loginButtoncontainer}>
+              <FontAwesome name="sign-in" size={20} color={'#495057'}/>
+              <Text style={styles.buttonText}>Login</Text>
+            </View>
+          </TouchableHighlight>
         </View>
       </View>  
     )  
@@ -75,6 +80,24 @@ const styles = StyleSheet.create({
     backgroundColor: '#ced4da',
     marginBottom: 10,
     borderRadius: 50, 
-    //color: 'black'  
-  }
+  },
+  loginButton: {
+    height:40,
+    width:220,
+    backgroundColor:"#74c0fc",
+    flexDirection:'column',
+    borderRadius: 50, 
+    marginBottom: 5, 
+  },
+  loginButtoncontainer: {
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center'  
+  },
+  buttonText: {
+    color : '#495057',
+    fontSize:15,
+    marginLeft:15 
+  } 
 })

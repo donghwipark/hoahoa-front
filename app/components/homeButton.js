@@ -6,7 +6,6 @@ import {
 
 
 export default class HomeButton extends React.Component {
-  login() {this.props.navigation.navigate('Home')}
   render () {
     return (
         <Image 

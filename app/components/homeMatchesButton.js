@@ -10,7 +10,6 @@ import {MaterialIcons} from '@expo/vector-icons'
 
 
 export default class homeMatchesButton extends React.Component {
-  login() {this.props.navigation.navigate('Home')}
   render () {
     return (
       <View>

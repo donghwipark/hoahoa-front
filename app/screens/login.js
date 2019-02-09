@@ -29,6 +29,7 @@ export default class Login extends React.Component {
         <View style={styles.login}>
           <SignIn onPress={this.login}/>
         </View>
+        <Text>Or login with</Text>
         <View style={styles.facebookButton} >
           <FacebookButton onPress={this.login} />
         </View>
