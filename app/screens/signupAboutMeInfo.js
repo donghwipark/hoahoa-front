@@ -12,7 +12,7 @@ import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-i
 
 //will add bubble functions to select 8 keywords
 
-export default class SignUp extends React.Component {
+export default class SignupAboutMeInfo extends React.Component {
   state = {
     aboutme: ''
   }
