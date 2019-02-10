@@ -13,28 +13,40 @@ import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-i
 export default class SignUp extends React.Component {
   state = {
     email: '',
-    password: ''
+    password: '',
+    nickname: '',
   }
-
-  signIn = () => {
-    return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users")
-      .then((response) => response.json())
-      .then((response) => {
-        const checkEmailAndPassword = (element) => {
-          if ( (element.email ===this.state.email) && (element.password === this.state.password) ) {
-            return true
-          }
-        }        
-        if (response.some(checkEmailAndPassword)) {
-          this.props.onPress()  
-        } else {
-          alert('Email or password is wrong')
-        }     
-      })
-      .catch((error) => {
-        console.error(error)  
-    })
+  handleEmail = (text) => {
+    this.setState({ email: text })
   }
+  handlePassword = (text) => {
+    this.setState({ password: text })
+  }
+  handleNickname = (text) => {
+    this.setState({ nickname: text })
+  }
+  login = (email, pass) => {
+    alert('email: ' + email + ' password: ' + pass)
+  }
+  // signIn = () => {
+  //   return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users")
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       const checkEmailAndPassword = (element) => {
+  //         if ( (element.email ===this.state.email) && (element.password === this.state.password) ) {
+  //           return true
+  //         }
+  //       }        
+  //       if (response.some(checkEmailAndPassword)) {
+  //         this.props.onPress()  
+  //       } else {
+  //         alert('Email or password is wrong')
+  //       }     
+  //     })
+  //     .catch((error) => {
+  //       console.error(error)  
+  //   })
+  // }
   render () {
     return (
       <View style={{flex:1, flexDirection:"column", margin:10}}>
