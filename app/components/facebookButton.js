@@ -25,8 +25,8 @@ export default class FacebookButton extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    height:40,
-    width:220,
+    height:50,
+    width:250,
     backgroundColor:"#3b5998",
     flexDirection:'column',
     borderRadius: 50, 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color : 'white',
-    fontSize:15,
+    fontSize:18,
     marginLeft:15 
   } 
 })

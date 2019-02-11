@@ -24,12 +24,12 @@ export default class signUpButton extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    height:60,
-    width:280,
+    height:50,
+    width:250,
     backgroundColor:"#206DDF",
     flexDirection:'column',
     borderRadius: 50, 
-    marginBottom: 20, 
+    marginBottom: 25, 
   },
   buttoncontainer: {
     flex:1,
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color : 'white',
-    fontSize:35, 
+    fontSize:30, 
   },
    
 })

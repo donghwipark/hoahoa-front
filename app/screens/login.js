@@ -4,6 +4,7 @@ import {
    Text,
    View,
    Image,
+   TouchableHighlight,
 } from 'react-native';
 import FacebookButton from '../components/facebookButton'
 import KakaotalkButton from '../components/kakaotalkButton'
@@ -21,25 +22,29 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image 
-          style={{width:400, height:200}}
-          source={require('../images/icon.png')}
+          style={{width:100, height:80, backgroundColor:'white'}}
+          source={require('../images/homeIcon.png')}
         />
+        <Text>Sign In</Text>
         <View style={styles.login}>
           <SignIn onPress={this.login}/>
         </View>
-        <Text>Or login with</Text>
         <View style={styles.facebookButton} >
           <FacebookButton onPress={this.login} />
         </View>
         <View style={styles.kakaotalkButton}>
           <KakaotalkButton onPress={this.login} />
-        </View>       
-        <Text style={styles.text}>Don't have any account?</Text>
-        <View style={styles.facebookButton} >
-          <SignUpButton onPress={this.signUp} />
-        </View> 
+        </View>
+        <View>
+          <Text>Don't have an account?</Text>
+            <TouchableHighlight onPress={this.signUp}>        
+              <View>
+                <Text style={{}}>Create Now</Text>
+              </View>
+            </TouchableHighlight>       
+        </View>  
       </View>
     );
   }
@@ -53,10 +58,9 @@ const styles = StyleSheet.create({
   },
   login: {
     backgroundColor: '#fff',
-    //margin: 10,
-    marginTop: 20,
-    marginBottom: 20,
-    borderWidth: 0,
+    padding:40,
+
+    borderWidth: 0.5,
     borderColor: 'lightgrey',
     justifyContent:'center' , 
     alignItems: 'center',

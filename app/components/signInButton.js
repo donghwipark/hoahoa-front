@@ -7,12 +7,11 @@ import {
 } from 'react-native'
 
 export default class signInButton extends React.Component {
-  login() {this.props.navigation.navigate('login')}
   render () {
     return (
       <TouchableHighlight 
         style={styles.button}
-        onPress={this.login}
+        onPress={this.props.onPress}
         >        
         <View style={styles.buttoncontainer}>
           <Text style={styles.buttonText}>Sign In</Text>
@@ -24,8 +23,8 @@ export default class signInButton extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    height:60,
-    width:280,
+    height:50,
+    width:250,
     backgroundColor:"white",
     flexDirection:'column',
     borderWidth: 0.5,
@@ -41,6 +40,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color : '#206DDF',
-    fontSize:35,
+    fontSize:30,
   } 
 })

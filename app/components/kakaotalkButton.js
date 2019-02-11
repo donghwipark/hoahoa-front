@@ -26,8 +26,8 @@ export default class KakaotalkButton extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    height:40,
-    width:220,
+    height:50,
+    width:250,
     backgroundColor:"#fef01b",
     flexDirection:'column',
 
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color : 'black',
-    fontSize:15,
+    fontSize:18,
     marginLeft:15 
   } 
 })

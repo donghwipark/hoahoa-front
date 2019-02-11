@@ -61,8 +61,7 @@ export default class SignIn extends React.Component {
             style={styles.loginButton}
             onPress={this.signIn}>        
             <View style={styles.loginButtoncontainer}>
-              <FontAwesome name="sign-in" size={20} color={'#495057'}/>
-              <Text style={styles.buttonText}>Login</Text>
+              <Text style={styles.buttonText}>Sign In</Text>
             </View>
           </TouchableHighlight>
         </View>
@@ -85,9 +84,9 @@ const styles = StyleSheet.create({
     borderRadius: 50, 
   },
   loginButton: {
-    height:40,
-    width:220,
-    backgroundColor:"#74c0fc",
+    height:50,
+    width:250,
+    backgroundColor:"#206DDF",
     flexDirection:'column',
     borderRadius: 50, 
     marginBottom: 5, 
@@ -99,8 +98,8 @@ const styles = StyleSheet.create({
     justifyContent:'center'  
   },
   buttonText: {
-    color : '#495057',
-    fontSize:15,
+    color : 'white',
+    fontSize:30,
     marginLeft:15 
   } 
 })

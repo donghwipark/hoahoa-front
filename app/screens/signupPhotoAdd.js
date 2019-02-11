@@ -28,7 +28,7 @@ export default class SignUpPhotoAdd extends React.Component {
           <View style={styles.buttoncontainer}>
             <FontAwesome name="heart" size={20} color={'black'}/>  
             <TextInput style = {styles.input}
-              placeholder='    About me'
+              placeholder='About me'
               onChangeText={(text) => this.setState({password: text})}
             />
           </View>  
