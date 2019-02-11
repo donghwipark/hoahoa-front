@@ -46,7 +46,7 @@ export default class SignUpOne extends React.Component {
           </View>
         </View>
         <View>
-          <Text style={styles.text}>E-Mail</Text>
+          <Text style={styles.text}>Nickname</Text>
           <View style={styles.buttoncontainer}>
             <TextInput style = {styles.input}
               placeholder='    Nickname'
@@ -56,7 +56,7 @@ export default class SignUpOne extends React.Component {
           </View>  
         </View>
         <View>
-          <Text style={styles.text}>E-Mail</Text>
+          <Text style={styles.text}>Password</Text>
           <View style={styles.buttoncontainer}>
             <TextInput style = {styles.input}
               placeholder='    Password'
@@ -67,7 +67,7 @@ export default class SignUpOne extends React.Component {
           </View>  
         </View>
         <View>
-          <Text style={styles.text}>E-Mail</Text>
+          <Text style={styles.text}>Password</Text>
           <View style={styles.buttoncontainer}>
             <TextInput style = {styles.input}
               placeholder='    Checking password'
