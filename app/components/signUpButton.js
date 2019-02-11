@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     backgroundColor:"#206DDF",
     flexDirection:'column',
     borderRadius: 50, 
-    marginBottom: 25, 
+    marginBottom: 10, 
   },
   buttoncontainer: {
     flex:1,

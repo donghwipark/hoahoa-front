@@ -8,7 +8,7 @@ import {
   Button,
   TouchableHighlight
 } from 'react-native';
-import {MaterialCommunityIcons, FontAwesome} from '@expo/vector-icons'
+import {MaterialCommunityIcons, Entypo} from '@expo/vector-icons'
 
 export default class SignIn extends React.Component {
   state = {
@@ -39,22 +39,24 @@ export default class SignIn extends React.Component {
     return (
       <View style={{padding: 10}}>
         <View>
-          <View style={styles.buttoncontainer}>
-            <MaterialCommunityIcons name="email" size={20} color={'black'}/>
+          <Text style={styles.text}>E-Mail</Text>
+          <View style={styles.buttoncontainer}>  
             <TextInput style = {styles.input}
-            placeholder='    Username'
-            onChangeText={(text) => this.setState({email: text})}
+              placeholder='email@'
+              onChangeText={(text) => this.setState({email: text})}
             />
+            <MaterialCommunityIcons name="email" size={20} color={'#adb5bd'}/>
           </View>
         </View>
         <View>
-          <View style={styles.buttoncontainer}>
-            <FontAwesome name="user-secret" size={20} color={'black'}/>  
+          <Text style={styles.text}>Password</Text>
+          <View style={styles.buttoncontainer}>  
             <TextInput style = {styles.input}
-              placeholder='    Password'
+              placeholder='Password'
               secureTextEntry
               onChangeText={(text) => this.setState({password: text})}
             />
+            <Entypo name="eye" size={20} color={'#adb5bd'}/>  
           </View>  
         <View style={{margin:0}} />
           <TouchableHighlight 
@@ -75,19 +77,22 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
+    borderBottomWidth:1,
+    borderBottomColor:'#adb5bd',
+    marginBottom: 20,
   },
   input:{
+    flex:1,
     height: 40,
-    width: 200,
-    backgroundColor: '#ced4da',
-    marginBottom: 10,
-    borderRadius: 50, 
+    width: 290,
   },
   loginButton: {
     height:50,
     width:250,
     backgroundColor:"#206DDF",
     flexDirection:'column',
+    alignItems:'center',
+    justifyContent:'center',  
     borderRadius: 50, 
     marginBottom: 5, 
   },
@@ -101,5 +106,9 @@ const styles = StyleSheet.create({
     color : 'white',
     fontSize:30,
     marginLeft:15 
-  } 
+  },
+  text: {
+    color : '#adb5bd',
+    marginBottom:0
+  }
 })

@@ -23,11 +23,13 @@ export default class Login extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={{position:'absolute', width:400, height:200, backgroundColor:'#206DDF'}}></View>
+        <View style={{position:'absolute', width:400, height:200, backgroundColor:'#206DDF'}}></View>
         <Image 
-          style={{width:100, height:80, backgroundColor:'white'}}
+          style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
         />
-        <Text>Sign In</Text>
+        <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Sign In</Text>
         <View style={styles.login}>
           <SignIn onPress={this.login}/>
         </View>
@@ -37,13 +39,13 @@ export default class Login extends React.Component {
         <View style={styles.kakaotalkButton}>
           <KakaotalkButton onPress={this.login} />
         </View>
-        <View>
-          <Text>Don't have an account?</Text>
-            <TouchableHighlight onPress={this.signUp}>        
-              <View>
-                <Text style={{}}>Create Now</Text>
-              </View>
-            </TouchableHighlight>       
+        <View style={{flex:1, flexDirection:'row'}}>
+          <Text style={{fontSize:20, color:'grey'}}>Don't have an account?</Text>
+          <TouchableHighlight onPress={this.signUp}>        
+            <View>
+              <Text style={{fontWeight:'bold', fontSize:20, color:'#495057'}}> Create Now</Text>
+            </View>
+          </TouchableHighlight>       
         </View>  
       </View>
     );
@@ -52,19 +54,19 @@ export default class Login extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:"#fff",
+    backgroundColor:"#206DDF",
     flex: 1,
     alignItems: 'center',
   },
   login: {
     backgroundColor: '#fff',
-    padding:40,
-
+    padding:30,
+    borderRadius: 10, 
     borderWidth: 0.5,
     borderColor: 'lightgrey',
     justifyContent:'center' , 
     alignItems: 'center',
-
+    marginBottom:30
   },
   facebookButton: {
     alignItems: 'center',
