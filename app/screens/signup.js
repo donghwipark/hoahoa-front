@@ -9,6 +9,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-icons'
+import SignUpOne from '../components/signupOne'
 
 export default class SignUp extends React.Component {
   state = {
@@ -52,59 +53,8 @@ export default class SignUp extends React.Component {
   // }
   render () {
     return (
-      <View style={{flex:1, flexDirection:"column", margin:10}}>
-        <View style={{marginTop:150}}>
-          <View style={styles.buttoncontainer}>
-            <MaterialCommunityIcons name="email" size={20} color={'black'}/>
-            <TextInput style = {styles.input}
-              placeholder='    Email'
-              onChangeText={(text) => this.setState({email: text})}
-            />
-          </View>
-        </View>
-        <View>
-          <View style={styles.buttoncontainer}>
-            <MaterialCommunityIcons name="account-location" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Nickname'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View>
-        <View>
-          <View style={styles.buttoncontainer}>
-            <FontAwesome name="user-secret" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Password'
-              secureTextEntry
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View>
-        <View>
-          <View style={styles.buttoncontainer}>
-            <FontAwesome name="user-secret" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Checking password'
-              secureTextEntry
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View> 
-        <TouchableHighlight style={styles.buttoncontainer} onPress={this.signUp}>        
-          <View style={styles.loginButtoncontainer}>
-            <FontAwesome name="sign-in" size={20} color={'#495057'}/>
-            <Text style={styles.buttonText}>Sign Up</Text>
-          </View>
-        </TouchableHighlight>
-        <TouchableHighlight 
-          style={styles.button}
-          onPress={this.nextPage}>
-          <View style={styles.buttoncontainer}>
-            <FontAwesome name="facebook" size={20} color={'white'}/>
-            <Text style={styles.buttonText}>Next</Text>
-          </View>
-        </TouchableHighlight>
+      <View>
+        <SignUpOne/>
       </View>  
     )  
   }
