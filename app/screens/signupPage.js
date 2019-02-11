@@ -9,7 +9,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome, Entypo} from '@expo/vector-icons'
-import SignUp from '../components/signup'
+import SignUp from '../components/signupOne'
 
 export default class SignUpPage extends React.Component {
   state = {

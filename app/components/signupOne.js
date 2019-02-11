@@ -8,7 +8,7 @@ import {
   Button,
   TouchableHighlight
 } from 'react-native';
-import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-icons'
+import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
 
 export default class SignUpOne extends React.Component {
   state = {
@@ -36,41 +36,45 @@ export default class SignUpOne extends React.Component {
     return (
       <View>
         <View >
+          <Text style={styles.text}>E-Mail</Text>
           <View style={styles.buttoncontainer}>
-            <MaterialCommunityIcons name="email" size={20} color={'black'}/>
             <TextInput style = {styles.input}
               placeholder='    Email'
               onChangeText={(text) => this.setState({email: text})}
             />
+            <MaterialCommunityIcons name="email" size={20} color={'#adb5bd'}/>
           </View>
         </View>
         <View>
+          <Text style={styles.text}>E-Mail</Text>
           <View style={styles.buttoncontainer}>
-            <MaterialCommunityIcons name="account-location" size={20} color={'black'}/>  
             <TextInput style = {styles.input}
               placeholder='    Nickname'
               onChangeText={(text) => this.setState({password: text})}
             />
+            <MaterialCommunityIcons name="account-location" size={20} color={'#adb5bd'}/>  
           </View>  
         </View>
         <View>
+          <Text style={styles.text}>E-Mail</Text>
           <View style={styles.buttoncontainer}>
-            <FontAwesome name="user-secret" size={20} color={'black'}/>  
             <TextInput style = {styles.input}
               placeholder='    Password'
               secureTextEntry
               onChangeText={(text) => this.setState({password: text})}
             />
+            <Entypo name="eye" size={20} color={'#adb5bd'}/>  
           </View>  
         </View>
         <View>
+          <Text style={styles.text}>E-Mail</Text>
           <View style={styles.buttoncontainer}>
-            <FontAwesome name="user-secret" size={20} color={'black'}/>  
             <TextInput style = {styles.input}
               placeholder='    Checking password'
               secureTextEntry
               onChangeText={(text) => this.setState({password: text})}
             />
+            <Entypo name="eye" size={20} color={'#adb5bd'}/>  
           </View>  
         </View> 
         <TouchableHighlight 
@@ -90,27 +94,27 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
+    borderBottomWidth:1,
+    borderBottomColor:'#adb5bd',
+    marginBottom: 20,
   },
   input:{
     height: 40,
-    width: 200,
-    backgroundColor: '#ced4da',
-    marginBottom: 10,
-    borderRadius: 50, 
+    width: 290,
   },
   loginButton: {
-    height:40,
-    width:220,
-    backgroundColor:"#74c0fc",
+    height:50,
+    width:250,
+    backgroundColor:"#206DDF",
     flexDirection:'column',
     alignItems:'center',
+    justifyContent:'center',  
     borderRadius: 50, 
     marginBottom: 5, 
-    justifyContent:'center'  
   },
   loginButtoncontainer: {
     flex:1,
-    flexDirection:'column',
+    flexDirection:'row',
     alignItems:'center',
     justifyContent:'center'  
   },
@@ -118,5 +122,9 @@ const styles = StyleSheet.create({
     color : '#495057',
     fontSize:15,
     marginLeft:15 
+  },
+  text: {
+    color : '#adb5bd',
+    marginBottom:0
   } 
 })
