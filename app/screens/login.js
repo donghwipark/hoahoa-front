@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     borderColor: 'lightgrey',
     justifyContent:'center' , 
     alignItems: 'center',
-    marginBottom:30
+    marginBottom:15
   },
   facebookButton: {
     alignItems: 'center',

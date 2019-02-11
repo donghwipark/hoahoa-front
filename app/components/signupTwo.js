@@ -8,6 +8,7 @@ import {
   Button,
   TouchableHighlight
 } from 'react-native';
+import DatePicker from 'react-native-datepicker'
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
 
 export default class SignUpTwo extends React.Component {
@@ -15,6 +16,7 @@ export default class SignUpTwo extends React.Component {
     email: '',
     password: '',
     nickname: '',
+    date: "2016-05-15"
   }
   handleEmail = (text) => {
     this.setState({ email: text })
@@ -25,21 +27,20 @@ export default class SignUpTwo extends React.Component {
   handleNickname = (text) => {
     this.setState({ nickname: text })
   }
-  signUp = (email, pass) => {
-    alert('email: ' + this.state.email + ' password: ' + this.state.pass)
-  }
 
   render () {
     return (
       <View>
         <View >
           <Text style={styles.text}>Birthday</Text>
-          <View style={styles.buttoncontainer}>
-            <TextInput style = {styles.input}
-              placeholder='    Email'
-              onChangeText={(text) => this.setState({email: text})}
-            />
-            <MaterialCommunityIcons name="email" size={20} color={'#adb5bd'}/>
+          <View style={styles.datecontainer}>
+            <DatePicker style = {styles.input}
+              minDate="1950-05-01"
+              maxDate="2000-06-01"
+              confirmBtnText="Confirm"
+              cancelBtnText="Cancel"
+              onDateChange={(date) => {console.log(date)}}
+              />
           </View>
         </View>
         <View>
@@ -68,7 +69,7 @@ export default class SignUpTwo extends React.Component {
             style={styles.nextButton}
             onPress={this.props.onPress}>
             <View style={styles.nextButtoncontainer}>
-              <Text style={styles.buttonText}>Next</Text>
+              <Text style={styles.buttonText}>Sign Up</Text>
             </View>
           </TouchableHighlight>
         </View>
@@ -78,6 +79,12 @@ export default class SignUpTwo extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  datecontainer:{
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center',
+    marginBottom: 20,
+  },
   buttoncontainer:{
     flexDirection:'row',
     alignItems:'center',

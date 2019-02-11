@@ -25,8 +25,8 @@ export default class SignUpOne extends React.Component {
   handleNickname = (text) => {
     this.setState({ nickname: text })
   }
-  signUp = (email, pass) => {
-    alert('email: ' + this.state.email + ' password: ' + this.state.pass)
+  signUp = () => {
+    this.props.navigation.navigate('Home')
   }
 
   render () {

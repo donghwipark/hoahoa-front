@@ -2,6 +2,7 @@ import React from "react"
 import {
   View,
   Text,
+  Image,
   TextInput,
   ScrollView,
   StyleSheet,
@@ -9,7 +10,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-icons'
-
+import SignUpTwo from '../components/signupTwo'
 // will seperately add information about birthday, gender, location  
 
 export default class SignUpAddInfo extends React.Component {
@@ -28,81 +29,60 @@ export default class SignUpAddInfo extends React.Component {
     this.setState({ location: text })
   }
   nextPage = () => {
-    this.props.navigation.navigate('SignUpPhotoAdd')
+    this.props.navigation.navigate('Home')
   }
   render () {
     return (
-      <View style={{flex:1, flexDirection:"column", margin:10}}>
-        <View>
-          <View style={styles.buttoncontainer}>
-            <FontAwesome name="birthday-cake" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Birthday'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
+      <View style={styles.container}>
+        <View style={{position:'absolute', width:400, height:200, backgroundColor:'#206DDF'}}></View>
+        <View style={{position:'absolute', width:400, height:200, backgroundColor:'#206DDF'}}></View>
+        <Image 
+          style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
+          source={require('../images/homeIcon.png')}
+        />
+        <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Sign Up</Text>
+        <View style={styles.signin}>
+          <SignUpTwo onPress={this.nextPage}/>
         </View>
-        <View>
-          <View style={styles.buttoncontainer}>
-            <MaterialCommunityIcons name="human-male-female" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Gender'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
+        <View style={{flex:1, flexDirection:'row'}}>
+          <Text style={{fontSize:20, color:'grey'}}>Already have an account?</Text>
+          <TouchableHighlight onPress={this.signIn}>        
+            <View>
+              <Text style={{fontWeight:'bold', fontSize:20, color:'#495057'}}> Sign In</Text>
+            </View>
+          </TouchableHighlight>       
         </View>
-        <View>
-          <View style={styles.buttoncontainer}>
-            <FontAwesome name="heart" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    About me'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View> 
-        <TouchableHighlight style={styles.buttoncontainer} onPress={this.nextPage}>        
-          <View style={styles.loginButtoncontainer}>
-            <FontAwesome name="sign-in" size={20} color={'#495057'}/>
-            <Text style={styles.buttonText}>Next</Text>
-          </View>
-        </TouchableHighlight>
-      </View>  
+      </View>
     )  
   }
 }
 
 const styles = StyleSheet.create({
-  buttoncontainer:{
-    flexDirection:'row',
-    alignItems:'center',
-    justifyContent:'center',
+  container: {
+    backgroundColor:"#206DDF",
+    flex: 1,
+    alignItems: 'center',
   },
-  input:{
-    height: 40,
-    width: 200,
-    backgroundColor: '#ced4da',
-    marginBottom: 10,
-    borderRadius: 50, 
+  signin: {
+    backgroundColor: '#fff',
+    padding: 45,
+    borderRadius: 10, 
+    borderWidth: 0.5,
+    borderColor: 'lightgrey',
+    justifyContent:'center' , 
+    alignItems: 'center',
+    marginBottom:20
   },
-  loginButton: {
-    height:40,
-    width:220,
-    backgroundColor:"#74c0fc",
-    flexDirection:'column',
-    alignItems:'center',
-    borderRadius: 50, 
-    marginBottom: 5, 
-    justifyContent:'center'  
+  facebookButton: {
+    alignItems: 'center',
   },
-  loginButtoncontainer: {
-    flex:1,
-    flexDirection:'column',
-    alignItems:'center',
-    justifyContent:'center'  
+  kakaotalkButton:{
+    alignItems: 'center',
   },
-  buttonText: {
-    color : '#495057',
-    fontSize:15,
-    marginLeft:15 
-  } 
+  text:{
+    alignItems: 'center',
+    justifyContent:'center', 
+    marginBottom: 15,
+    marginTop: 15
+  }
 })
