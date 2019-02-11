@@ -26,5 +26,4 @@ const RouteConfigs = createStackNavigator(
   }
 )
 
-
 export default createAppContainer(RouteConfigs)

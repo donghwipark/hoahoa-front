@@ -1,2 +1,3 @@
-import App from './app/index'
+import App from './app/index' 
 export default App
+

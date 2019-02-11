@@ -25,8 +25,8 @@ export default class SignUp extends React.Component {
   handleNickname = (text) => {
     this.setState({ nickname: text })
   }
-  login = (email, pass) => {
-    alert('email: ' + email + ' password: ' + pass)
+  signUp = (email, pass) => {
+    alert('email: ' + this.state.email + ' password: ' + this.state.pass)
   }
   // signIn = () => {
   //   return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users")
@@ -70,24 +70,6 @@ export default class SignUp extends React.Component {
         </View>
         <View>
           <View style={styles.buttoncontainer}>
-            <FontAwesome name="birthday-cake" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Birthday'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View>
-        <View>
-          <View style={styles.buttoncontainer}>
-            <MaterialIcons name="location-city" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Location city'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View>
-        <View>
-          <View style={styles.buttoncontainer}>
             <FontAwesome name="heart" size={20} color={'black'}/>  
             <TextInput style = {styles.input}
               placeholder='    About me'
@@ -95,15 +77,6 @@ export default class SignUp extends React.Component {
             />
           </View>  
         </View>
-        <View>
-          <View style={styles.buttoncontainer}>
-            <MaterialCommunityIcons name="human-male-female" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Gender'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View> 
         <View>
           <View style={styles.buttoncontainer}>
             <FontAwesome name="user-secret" size={20} color={'black'}/>  
@@ -124,7 +97,7 @@ export default class SignUp extends React.Component {
             />
           </View>  
         </View> 
-        <TouchableHighlight style={styles.buttoncontainer} onPress={this.signIn}>        
+        <TouchableHighlight style={styles.buttoncontainer} onPress={this.signUp}>        
           <View style={styles.loginButtoncontainer}>
             <FontAwesome name="sign-in" size={20} color={'#495057'}/>
             <Text style={styles.buttonText}>Sign Up</Text>
