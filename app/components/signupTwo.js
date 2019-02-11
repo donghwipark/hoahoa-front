@@ -8,6 +8,7 @@ import {
   Button,
   TouchableHighlight
 } from 'react-native';
+import {Picker} from 'native-base'
 import DatePicker from 'react-native-datepicker'
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
 
@@ -46,10 +47,7 @@ export default class SignUpTwo extends React.Component {
         <View>
           <Text style={styles.text}>Gender</Text>
           <View style={styles.buttoncontainer}>
-            <TextInput style = {styles.input}
-              placeholder='    Nickname'
-              onChangeText={(text) => this.setState({password: text})}
-            />
+            <Picker/>
             <MaterialCommunityIcons name="account-location" size={20} color={'#adb5bd'}/>  
           </View>  
         </View>
@@ -57,7 +55,7 @@ export default class SignUpTwo extends React.Component {
           <Text style={styles.text}>Upload photo</Text>
           <View style={styles.buttoncontainer}>
             <TextInput style = {styles.input}
-              placeholder='    Password'
+              placeholder='Password'
               secureTextEntry
               onChangeText={(text) => this.setState({password: text})}
             />
