@@ -5,10 +5,8 @@ import {
    View,
    Image,
 } from 'react-native';
-import FacebookButton from '../components/facebookButton'
-import KakaotalkButton from '../components/kakaotalkButton'
-import SignIn from '../components/signIn';
 import SignUpButton from '../components/signUpButton';
+import SignInButton from '../components/signInButton'
 
 export default class Start extends React.Component {
   login = () => {
@@ -21,18 +19,23 @@ export default class Start extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.container}>
         <Image 
-          style={{width:400, height:200}}
-          source={require('../images/icon.png')}
+          style={{width:100, height:100, marginTop:100}}
+          source={require('../images/homeIcon.png')}
         />
-        <View style={styles.login}>
-          <SignIn onPress={this.login}/>
-        </View>
-        <Text style={styles.text}>Don't have any account?</Text>
+        <Image 
+          style={{width:250, height:50, marginTop:30, marginBottom: 20}}
+          source={require('../images/hoahoa.png')}
+        />
+        <Text style={{fontSize:20, marginBottom: 100, color:'grey'}}>find your friend</Text>        
         <View style={styles.facebookButton} >
           <SignUpButton onPress={this.signUp} />
+        </View>
+        <View style={styles.facebookButton} >
+          <SignInButton onPress={this.signUp} />
         </View> 
+       
       </View>
     );
   }
@@ -41,30 +44,6 @@ export default class Start extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor:"#fff",
-    flex: 1,
     alignItems: 'center',
-  },
-  login: {
-    backgroundColor: '#fff',
-    //margin: 10,
-    marginTop: 20,
-    marginBottom: 20,
-    borderWidth: 0,
-    borderColor: 'lightgrey',
-    justifyContent:'center' , 
-    alignItems: 'center',
-
-  },
-  facebookButton: {
-    alignItems: 'center',
-  },
-  kakaotalkButton:{
-    alignItems: 'center',
-  },
-  text:{
-    alignItems: 'center',
-    justifyContent:'center', 
-    marginBottom: 15,
-    marginTop: 15
   }
 });

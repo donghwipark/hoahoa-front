@@ -6,16 +6,16 @@ import {
   StyleSheet,
 } from 'react-native'
 
-export default class signUpButton extends React.Component {
-  login() {this.props.navigation.navigate('SignUp')}
+export default class signInButton extends React.Component {
+  login() {this.props.navigation.navigate('login')}
   render () {
     return (
       <TouchableHighlight 
         style={styles.button}
-        onPress={this.props.onPress}
+        onPress={this.login}
         >        
         <View style={styles.buttoncontainer}>
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <Text style={styles.buttonText}>Sign In</Text>
         </View>
       </TouchableHighlight>
     )  
@@ -26,10 +26,12 @@ const styles = StyleSheet.create({
   button: {
     height:60,
     width:280,
-    backgroundColor:"#206DDF",
+    backgroundColor:"white",
     flexDirection:'column',
+    borderWidth: 0.5,
+    borderColor: '#206DDF',
     borderRadius: 50, 
-    marginBottom: 20, 
+    marginBottom: 15, 
   },
   buttoncontainer: {
     flex:1,
@@ -38,8 +40,7 @@ const styles = StyleSheet.create({
     justifyContent:'center'  
   },
   buttonText: {
-    color : 'white',
-    fontSize:35, 
-  },
-   
+    color : '#206DDF',
+    fontSize:35,
+  } 
 })
