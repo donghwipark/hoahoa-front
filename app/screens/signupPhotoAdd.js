@@ -9,10 +9,10 @@ import {
   TouchableHighlight
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-icons'
-
+import SignUpButton from '../components/signUpButton'
 //will add bubble functions to select 8 keywords
 
-export default class SignupAboutMeInfo extends React.Component {
+export default class SignUpPhotoAdd extends React.Component {
   state = {
     aboutme: ''
   }
@@ -36,9 +36,12 @@ export default class SignupAboutMeInfo extends React.Component {
         <TouchableHighlight style={styles.buttoncontainer} onPress={this.signIn}>        
           <View style={styles.loginButtoncontainer}>
             <FontAwesome name="sign-in" size={20} color={'#495057'}/>
-            <Text style={styles.buttonText}>Sign Up</Text>
+            <Text style={styles.buttonText}>Add photo</Text>
           </View>
         </TouchableHighlight>
+        <View style={styles.facebookButton} >
+          <SignUpButton onPress={this.signUp} />
+        </View>
       </View>  
     )  
   }

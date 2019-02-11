@@ -29,6 +29,7 @@ export default class App extends Component {
       <View>
         <View style={{flex: 1, flexDirection:"row", justifyContent: 'space-between'}}>
           <HomeSettingButton onPress={this.moveSetting}/>
+          
           <HomeButton />          
           <HomeMatchesButton onPress={this.moveMatches}/>
         </View>

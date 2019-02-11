@@ -12,7 +12,7 @@ import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-i
 
 // will seperately add information about birthday, gender, location  
 
-export default class SignupAddInfo extends React.Component {
+export default class SignUpAddInfo extends React.Component {
   state = {
     birthday: '',
     gender: '',
@@ -26,6 +26,9 @@ export default class SignupAddInfo extends React.Component {
   }
   handleNickname = (text) => {
     this.setState({ location: text })
+  }
+  nextPage = () => {
+    this.props.navigation.navigate('SignUpPhotoAdd')
   }
   render () {
     return (
@@ -41,26 +44,26 @@ export default class SignupAddInfo extends React.Component {
         </View>
         <View>
           <View style={styles.buttoncontainer}>
-            <MaterialIcons name="location-city" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    Location city'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View>
-        <View>
-          <View style={styles.buttoncontainer}>
             <MaterialCommunityIcons name="human-male-female" size={20} color={'black'}/>  
             <TextInput style = {styles.input}
               placeholder='    Gender'
               onChangeText={(text) => this.setState({password: text})}
             />
           </View>  
+        </View>
+        <View>
+          <View style={styles.buttoncontainer}>
+            <FontAwesome name="heart" size={20} color={'black'}/>  
+            <TextInput style = {styles.input}
+              placeholder='    About me'
+              onChangeText={(text) => this.setState({password: text})}
+            />
+          </View>  
         </View> 
-        <TouchableHighlight style={styles.buttoncontainer} onPress={this.signIn}>        
+        <TouchableHighlight style={styles.buttoncontainer} onPress={this.nextPage}>        
           <View style={styles.loginButtoncontainer}>
             <FontAwesome name="sign-in" size={20} color={'#495057'}/>
-            <Text style={styles.buttonText}>Sign Up</Text>
+            <Text style={styles.buttonText}>Next</Text>
           </View>
         </TouchableHighlight>
       </View>  

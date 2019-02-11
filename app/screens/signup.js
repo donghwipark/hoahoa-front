@@ -28,6 +28,9 @@ export default class SignUp extends React.Component {
   signUp = (email, pass) => {
     alert('email: ' + this.state.email + ' password: ' + this.state.pass)
   }
+  nextPage = () => {
+    this.props.navigation.navigate('SignUpAddInfo')
+  }
   // signIn = () => {
   //   return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users")
   //     .then((response) => response.json())
@@ -70,15 +73,6 @@ export default class SignUp extends React.Component {
         </View>
         <View>
           <View style={styles.buttoncontainer}>
-            <FontAwesome name="heart" size={20} color={'black'}/>  
-            <TextInput style = {styles.input}
-              placeholder='    About me'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-          </View>  
-        </View>
-        <View>
-          <View style={styles.buttoncontainer}>
             <FontAwesome name="user-secret" size={20} color={'black'}/>  
             <TextInput style = {styles.input}
               placeholder='    Password'
@@ -101,6 +95,14 @@ export default class SignUp extends React.Component {
           <View style={styles.loginButtoncontainer}>
             <FontAwesome name="sign-in" size={20} color={'#495057'}/>
             <Text style={styles.buttonText}>Sign Up</Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight 
+          style={styles.button}
+          onPress={this.nextPage}>
+          <View style={styles.buttoncontainer}>
+            <FontAwesome name="facebook" size={20} color={'white'}/>
+            <Text style={styles.buttonText}>Next</Text>
           </View>
         </TouchableHighlight>
       </View>  
