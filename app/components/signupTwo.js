@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
 
-export default class SignUpOne extends React.Component {
+export default class SignUpTwo extends React.Component {
   state = {
     email: '',
     password: '',
@@ -33,7 +33,7 @@ export default class SignUpOne extends React.Component {
     return (
       <View>
         <View >
-          <Text style={styles.text}>E-Mail</Text>
+          <Text style={styles.text}>Birthday</Text>
           <View style={styles.buttoncontainer}>
             <TextInput style = {styles.input}
               placeholder='    Email'
@@ -43,7 +43,7 @@ export default class SignUpOne extends React.Component {
           </View>
         </View>
         <View>
-          <Text style={styles.text}>Nickname</Text>
+          <Text style={styles.text}>Gender</Text>
           <View style={styles.buttoncontainer}>
             <TextInput style = {styles.input}
               placeholder='    Nickname'
@@ -53,7 +53,7 @@ export default class SignUpOne extends React.Component {
           </View>  
         </View>
         <View>
-          <Text style={styles.text}>Password</Text>
+          <Text style={styles.text}>Upload photo</Text>
           <View style={styles.buttoncontainer}>
             <TextInput style = {styles.input}
               placeholder='    Password'
@@ -62,18 +62,7 @@ export default class SignUpOne extends React.Component {
             />
             <Entypo name="eye" size={20} color={'#adb5bd'}/>  
           </View>  
-        </View>
-        <View>
-          <Text style={styles.text}>Password</Text>
-          <View style={styles.buttoncontainer}>
-            <TextInput style = {styles.input}
-              placeholder='    Checking password'
-              secureTextEntry
-              onChangeText={(text) => this.setState({password: text})}
-            />
-            <Entypo name="eye" size={20} color={'#adb5bd'}/>  
-          </View>  
-        </View >
+        </View>        
         <View style={{margin:0}}> 
           <TouchableHighlight 
             style={styles.nextButton}

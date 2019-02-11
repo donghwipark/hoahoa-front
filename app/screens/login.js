@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   login: {
     backgroundColor: '#fff',
-    padding:30,
+    padding:45,
     borderRadius: 10, 
     borderWidth: 0.5,
     borderColor: 'lightgrey',
