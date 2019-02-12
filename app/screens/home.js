@@ -50,9 +50,6 @@ export default class App extends Component {
             )
             })}
         </View>
-        <View style={{flex:1, alignItems:'center'}}>
-          <SelectionButton onPress={this.selectionMove}  />
-        </View>  
       </View>
     )
   }

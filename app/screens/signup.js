@@ -28,8 +28,7 @@ export default class SignUp extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <View style={{position:'absolute', width:400, height:200, backgroundColor:'#206DDF'}}></View>
-        <View style={{position:'absolute', width:400, height:200, backgroundColor:'#206DDF'}}></View>
+        <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
         <Image 
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
@@ -42,7 +41,7 @@ export default class SignUp extends React.Component {
           <Text style={{fontSize:20, color:'grey'}}>Already have an account?</Text>
           <TouchableHighlight onPress={this.signIn}>        
             <View>
-              <Text style={{fontWeight:'bold', fontSize:20, color:'#495057'}}> Sign In</Text>
+              <Text style={{fontWeight:'bold', fontSize:20, color:'grey'}}> Sign In</Text>
             </View>
           </TouchableHighlight>       
         </View>
@@ -53,7 +52,6 @@ export default class SignUp extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:"#206DDF",
     flex: 1,
     alignItems: 'center',
   },

@@ -34,6 +34,7 @@ export default class SignUpPhoto extends React.Component {
   render () {
     return (
       <View style={styles.container}>
+        <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
         <Image 
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
@@ -57,7 +58,6 @@ export default class SignUpPhoto extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:"#206DDF",
     flex: 1,
     alignItems: 'center',
   },
@@ -71,12 +71,6 @@ const styles = StyleSheet.create({
     justifyContent:'center' , 
     alignItems: 'center',
     marginBottom:20
-  },
-  facebookButton: {
-    alignItems: 'center',
-  },
-  kakaotalkButton:{
-    alignItems: 'center',
   },
   text:{
     alignItems: 'center',

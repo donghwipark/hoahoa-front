@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     color:'white'
   },
   row: { flexDirection: 'row' },
-  image: { width: 250, height: 250, backgroundColor: 'gray', borderRadius:10 },
+  image: { width: 300, height: 300, backgroundColor: 'gray', borderRadius:10 },
   button: {
     padding: 5,
     margin: 10,
@@ -94,6 +94,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color : 'white',
-    fontSize:35,
+    fontSize:30,
   },
 });

@@ -51,7 +51,7 @@ export default class SignUpTwo extends React.Component {
           <Text style={styles.text}>Gender</Text>
           <View>
             <SwitchSelector
-              style={{alignItems:'center'}}
+              style={{alignItems:'center', marginBottom:35}}
               initial={0}
               onPress={console.log(this.state.gender)} 
               textColor='#adb5bd'
@@ -116,10 +116,11 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color : 'white',
-    fontSize:35,
+    fontSize:30,
     marginLeft:15 
   },
   text: {
     color : '#adb5bd',
+    marginBottom: 10
   } 
 })
