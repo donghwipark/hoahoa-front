@@ -10,10 +10,10 @@ import {
   TouchableHighlight
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-icons'
-import SignUpTwo from '../components/signupTwo'
+import UploadPhoto from '../components/uploadPhoto'
 // will seperately add information about birthday, gender, location  
 
-export default class SignUpAddInfo extends React.Component {
+export default class SignUpPhoto extends React.Component {
   state = {
     birthday: '',
     gender: '',
@@ -29,20 +29,18 @@ export default class SignUpAddInfo extends React.Component {
     this.setState({ location: text })
   }
   nextPage = () => {
-    this.props.navigation.navigate('SignUpPhoto')
+    this.props.navigation.navigate('Home')
   }
   render () {
     return (
       <View style={styles.container}>
-        <View style={{position:'absolute', width:400, height:200, backgroundColor:'#206DDF'}}></View>
-        <View style={{position:'absolute', width:400, height:200, backgroundColor:'#206DDF'}}></View>
         <Image 
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
         />
         <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Sign Up</Text>
         <View style={styles.signin}>
-          <SignUpTwo onPress={this.nextPage}/>
+          <UploadPhoto onPress={this.nextPage}/>
         </View>
         <View style={{flex:1, flexDirection:'row'}}>
           <Text style={{fontSize:20, color:'grey'}}>Already have an account?</Text>
@@ -64,8 +62,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   signin: {
-    backgroundColor: '#fff',
-    padding: 45,
+    width: '83%',
+    padding:30,
+    backgroundColor:'white',
     borderRadius: 10, 
     borderWidth: 0.5,
     borderColor: 'lightgrey',

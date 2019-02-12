@@ -6,7 +6,10 @@ import Setting from './screens/setting'
 import Matches from './screens/matches'
 import SignUp from './screens/signup'
 import SignUpAddInfo from './screens/signupAddInfo'
+import SignUpPhoto from './screens/signupPhoto'
 import Start from './screens/start'
+
+
 // const firebaseConfig = {
 //   apiKey: "AIzaSyD-8l49UiX0H8vLUS28h7KxpdnQXj_tCZU",
 //   databaseURL: "https://clonetinder-c7909.firebaseio.com",
@@ -22,6 +25,7 @@ const RouteConfigs = createStackNavigator(
     Matches: {screen:Matches},
     SignUp: {screen:SignUp},
     SignUpAddInfo: {screen:SignUpAddInfo},
+    SignUpPhoto: {screen:SignUpPhoto}
   },
   {
     headerMode:'none',

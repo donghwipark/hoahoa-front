@@ -26,7 +26,7 @@ export default class SignUpOne extends React.Component {
     this.setState({ nickname: text })
   }
   signUp = () => {
-    this.props.navigation.navigate('Home')
+    this.props.navigation.navigate('SignUpPhoto')
   }
 
   render () {

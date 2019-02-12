@@ -3,7 +3,6 @@ import {
   View,
   Text,
   TextInput,
-  ScrollView,
   StyleSheet,
   Button,
   TouchableHighlight
@@ -18,9 +17,8 @@ const Item = Picker.Item
 export default class SignUpTwo extends React.Component {
   state = {
     email: '',
-    photo: null,
+    photo: '',
     gender: '',
-    date: "2016-05-15"
   }
   handleEmail = (text) => {
     this.setState({ email: text })
@@ -31,11 +29,13 @@ export default class SignUpTwo extends React.Component {
   handleNickname = (text) => {
     this.setState({ nickname: text })
   }
-
+  nextPage = () => {
+    this.props.navigation.navigate('SignUpPhoto')
+  }
   render () {
     return (
       <View>
-        <View >
+        <View>
           <Text style={styles.text}>Birthday</Text>
           <View style={styles.datecontainer}>
             <DatePicker style = {styles.input}
@@ -63,24 +63,13 @@ export default class SignUpTwo extends React.Component {
               ]}
             />
           </View>
-        </View>
-        <View>
-          <Text style={styles.text}>Upload photo</Text>
-          <View style={styles.buttoncontainer}>
-            <TextInput style = {styles.input}
-              placeholder='Password'
-              secureTextEntry
-              onChangeText={(text) => this.setState({password: text})}
-            />
-            <Entypo name="eye" size={20} color={'#adb5bd'}/>  
-          </View>  
-        </View>        
+        </View>     
         <View style={{margin:0}}> 
           <TouchableHighlight 
             style={styles.nextButton}
             onPress={this.props.onPress}>
             <View style={styles.nextButtoncontainer}>
-              <Text style={styles.buttonText}>Sign Up</Text>
+              <Text style={styles.buttonText}>Next</Text>
             </View>
           </TouchableHighlight>
         </View>
