@@ -11,7 +11,7 @@ import {
 import {Picker} from 'native-base'
 import DatePicker from 'react-native-datepicker'
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
-//import ImagePicker from 'react-native-image-picker'
+import SwitchSelector from "react-native-switch-selector";
 
 const Item = Picker.Item
 
@@ -49,18 +49,20 @@ export default class SignUpTwo extends React.Component {
         </View>
         <View>
           <Text style={styles.text}>Gender</Text>
-          <View style={styles.buttoncontainer}>
-            <Picker
-              style = {styles.input}
-              iosHeader="Select one"
-              mode="dropdown"
-              selectedValue={this.state.gender}
-              onValueChange={text => (this.setState({gender:text}))} >
-                <Item label="Male" value="Male" />
-                <Item label="Female" value="Female" />
-            </Picker>
-            <MaterialCommunityIcons name="account-location" size={20} color={'#adb5bd'}/>  
-          </View>  
+          <View>
+            <SwitchSelector
+              style={{alignItems:'center'}}
+              initial={0}
+              onPress={console.log(this.state.gender)} 
+              textColor='#adb5bd'
+              selectedColor='white'
+              buttonColor='#206DDF'
+              options={[
+                  { label: "Female", value: "female" }, 
+                  { label: "Male", value: "male"}
+              ]}
+            />
+          </View>
         </View>
         <View>
           <Text style={styles.text}>Upload photo</Text>
@@ -130,6 +132,5 @@ const styles = StyleSheet.create({
   },
   text: {
     color : '#adb5bd',
-    marginBottom:0
   } 
 })
