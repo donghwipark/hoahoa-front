@@ -11,12 +11,15 @@ import {
 import {Picker} from 'native-base'
 import DatePicker from 'react-native-datepicker'
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
+//import ImagePicker from 'react-native-image-picker'
+
+const Item = Picker.Item
 
 export default class SignUpTwo extends React.Component {
   state = {
     email: '',
-    password: '',
-    nickname: '',
+    photo: null,
+    gender: '',
     date: "2016-05-15"
   }
   handleEmail = (text) => {
@@ -47,7 +50,15 @@ export default class SignUpTwo extends React.Component {
         <View>
           <Text style={styles.text}>Gender</Text>
           <View style={styles.buttoncontainer}>
-            <Picker/>
+            <Picker
+              style = {styles.input}
+              iosHeader="Select one"
+              mode="dropdown"
+              selectedValue={this.state.gender}
+              onValueChange={text => (this.setState({gender:text}))} >
+                <Item label="Male" value="Male" />
+                <Item label="Female" value="Female" />
+            </Picker>
             <MaterialCommunityIcons name="account-location" size={20} color={'#adb5bd'}/>  
           </View>  
         </View>

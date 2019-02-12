@@ -17,7 +17,6 @@ export default class HomeSettingButton extends React.Component {
             <FontAwesome name="cog" size={40} color={'#868e96'}/>
           </View>
         </TouchableHighlight>
-          <Text style={styles.buttonText}>Setting</Text>
       </View>
     )  
   }

@@ -1,14 +1,15 @@
 
 import React, {Component} from 'react'
-import {View, StyleSheet} from 'react-native'
+import {View, StyleSheet, Text} from 'react-native'
 import Card from '../components/card'
 import HomeMatchesButton from '../components/homeMatchesButton';
 import HomeSettingButton from '../components/homeSettingButton';
 import HomeButton from '../components/homeButton';
-
+import SelectionButton from '../components/selectionSwitch'
 export default class App extends Component {
   state = {
     profileIndex: 0,  
+    gender: '',
   }
 
   nextCard = () => {
@@ -23,17 +24,22 @@ export default class App extends Component {
     this.props.navigation.navigate('Matches')
   }
 
+  selectionMove = (value) => {
+    this.setState({ gender: value })
+    console.log(this.state.gender)
+  }
+
   render() {
     const {profileIndex} = this.state
     return (
-      <View>
-        <View style={{flex: 1, flexDirection:"row", justifyContent: 'space-between'}}>
+      <View style={{flex: 1, flexDirection:"column", alignItems:'stretch'}}>
+        <View style={{flex: 1, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between'}}>
           <HomeSettingButton onPress={this.moveSetting}/>
           
           <HomeButton />          
           <HomeMatchesButton onPress={this.moveMatches}/>
         </View>
-        <View>
+        <View style={{flex: 6}}>
             {profiles.slice(profileIndex, profileIndex + 20).reverse().map((profile) => {
             return (
               <Card
@@ -44,19 +50,19 @@ export default class App extends Component {
             )
             })}
         </View>
+        <View style={{flex:1, alignItems:'center'}}>
+          <SelectionButton onPress={this.selectionMove}  />
+        </View>  
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  navigation :{
-
-  }, 
-  setting : {
-  },
-  mathces: {
-    backgroundColor: 'lightgray'
+  selection :{
+    flex:1,
+    alignItems:'center',
+    width: '70%',
   }, 
 })
 

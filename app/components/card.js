@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
   card: {
     position: 'absolute',
     width: width - 20,
-    height: height * 0.7,
-    top: (height * 0.3) / 2,
+    height: height * 0.65,
+    top: (height * 0.05) / 2,
     overflow: 'hidden',
     backgroundColor: 'white',
     margin: 10,

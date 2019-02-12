@@ -18,7 +18,6 @@ export default class homeMatchesButton extends React.Component {
             <MaterialIcons name="chat" size={40} color={'#868e96'}/>
           </View>
         </TouchableHighlight>
-          <Text style={styles.buttonText}>Setting</Text>
       </View>
     )  
   }
