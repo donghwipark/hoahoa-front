@@ -10,7 +10,7 @@ import {
 
 export default class FilteringSetting extends Component {
   state = {
-    ageRangeValues: [19, 24],
+    ageRangeValues: [19, 100],
     distanceValue: [5],
     showMen: false,
     showWomen: false,
@@ -19,7 +19,7 @@ export default class FilteringSetting extends Component {
   render() {
     const {ageRangeValues, distanceValue, showMen, showWomen} = this.state
     return (
-      <View>
+      <View style={styles.setting}>
         <View style={styles.label}>
             <Text>Distance</Text>
             <Text style={{color:'darkgrey'}}>{distanceValue}km</Text>
@@ -67,17 +67,29 @@ const styles = StyleSheet.create({
       alignItems:'center',
       justifyContent:'center',
     },
+    setting: {
+      backgroundColor: '#fff',
+      width:'85%',
+      borderRadius: 10, 
+      borderWidth: 0.5,
+      borderColor: 'lightgrey',
+      justifyContent:'space-between' , 
+    },
     label: {
       flexDirection:'row',
       alignItems:'center',
       justifyContent:'space-between',
-      marginLeft:20,
-      marginRight:20,
+      top:'10%',
+      marginLeft:30,
+      marginRight:30,
+      marginBottom:10,
     },
     switch: {
       flexDirection:'row',
       alignItems:'center',
       justifyContent:'space-between',
-      margin:20,
+      marginLeft:30,
+      marginRight:30,
+      marginBottom:20
     },
   })

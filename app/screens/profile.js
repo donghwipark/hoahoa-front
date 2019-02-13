@@ -119,12 +119,13 @@ export default class Profile extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:7,
+    flex:9,
     backgroundColor:'#206DDF',
+    marginBottom:40
   },
   bottomContainer: {
     padding:40,
-    flex:8,
+    flex:10,
     backgroundColor:'#ffffff',
     alignItems:'center',
     justifyContent:'center',
@@ -139,7 +140,7 @@ const styles = StyleSheet.create({
   },
   profile: {
     flex:1,
-    marginTop:90,
+    marginTop:70,
     alignItems:'center',
     justifyContent:'center',
   },

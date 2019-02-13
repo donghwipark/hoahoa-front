@@ -19,7 +19,6 @@ export default class Setting extends React.Component {
 
   render() {
     //const {first_name, work, id} = this.props.user
-    const {ageRangeValues, distanceValue, showMen, showWomen} = this.state
     //const bio = (work && work[0] && work[0].position) ? work[0].position.name : null
     return (
       <View style={styles.container}>
@@ -29,7 +28,7 @@ export default class Setting extends React.Component {
           source={require('../images/homeIcon.png')}
         />
         <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Setting</Text>
-        <FilteringSetting/>
+        <FilteringSetting />
       </View>
     )
   }
@@ -37,9 +36,9 @@ export default class Setting extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor:'white',
-    alignItems:'center',
-    justifyContent:'center',
+    backgroundColor:"white",
+    flex: 1,
+    alignItems: 'center',
   },
   profile: {
     flex:1,
