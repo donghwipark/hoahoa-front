@@ -14,7 +14,7 @@ export default class HomeSettingButton extends React.Component {
       <View>
         <TouchableHighlight style={styles.button} onPress={this.props.onPress}>       
           <View>
-            <FontAwesome name="cog" size={40} color={'#868e96'}/>
+            <FontAwesome name="user-circle" size={40} color={'#868e96'}/>
           </View>
         </TouchableHighlight>
       </View>

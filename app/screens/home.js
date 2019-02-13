@@ -5,7 +5,8 @@ import Card from '../components/card'
 import HomeMatchesButton from '../components/homeMatchesButton';
 import HomeSettingButton from '../components/homeSettingButton';
 import HomeButton from '../components/homeButton';
-import SelectionButton from '../components/selectionSwitch'
+import SelectScrollView from '../components/interestScrollView'
+
 export default class App extends Component {
   state = {
     profileIndex: 0,  
@@ -17,7 +18,7 @@ export default class App extends Component {
   }
 
   moveSetting = () => {
-    this.props.navigation.navigate('Setting')
+    this.props.navigation.navigate('Profile')
   }
 
   moveMatches = () => {
@@ -33,13 +34,15 @@ export default class App extends Component {
     const {profileIndex} = this.state
     return (
       <View style={{flex: 1, flexDirection:"column", alignItems:'stretch'}}>
-        <View style={{flex: 1, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between'}}>
+        <View style={{flex: 1, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between', marginBottom:10}}>
           <HomeSettingButton onPress={this.moveSetting}/>
-          
           <HomeButton />          
           <HomeMatchesButton onPress={this.moveMatches}/>
         </View>
-        <View style={{flex: 6}}>
+        <View>
+          <SelectScrollView />
+        </View> 
+        <View style={{flex: 10}}>
             {profiles.slice(profileIndex, profileIndex + 20).reverse().map((profile) => {
             return (
               <Card

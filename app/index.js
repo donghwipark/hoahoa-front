@@ -8,7 +8,7 @@ import SignUp from './screens/signup'
 import SignUpAddInfo from './screens/signupAddInfo'
 import SignUpPhoto from './screens/signupPhoto'
 import Start from './screens/start'
-
+import Profile from './screens/profile'
 
 // const firebaseConfig = {
 //   apiKey: "AIzaSyD-8l49UiX0H8vLUS28h7KxpdnQXj_tCZU",
@@ -25,7 +25,8 @@ const RouteConfigs = createStackNavigator(
     Matches: {screen:Matches},
     SignUp: {screen:SignUp},
     SignUpAddInfo: {screen:SignUpAddInfo},
-    SignUpPhoto: {screen:SignUpPhoto}
+    SignUpPhoto: {screen:SignUpPhoto},
+    Profile: {screen:Profile}
   },
   {
     headerMode:'none',

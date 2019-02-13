@@ -80,9 +80,9 @@ export default class Card extends Component {
 const styles = StyleSheet.create({
   card: {
     position: 'absolute',
-    width: width - 20,
-    height: height * 0.7,
-    top: (height * 0.2) / 2,
+    width: '95%',
+    height: '88%',
+    top: (height * 0.1) / 2,
     overflow: 'hidden',
     backgroundColor: 'white',
     margin: 10,

@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Image
 } from 'react-native'
-import {MaterialIcons} from '@expo/vector-icons'
+import {SimpleLineIcons} from '@expo/vector-icons'
 
 
 export default class homeMatchesButton extends React.Component {
@@ -15,7 +15,7 @@ export default class homeMatchesButton extends React.Component {
       <View>
         <TouchableHighlight style={styles.button} onPress={this.props.onPress}>       
           <View>
-            <MaterialIcons name="chat" size={40} color={'#868e96'}/>
+            <SimpleLineIcons name="bubble" size={40} color={'#868e96'}/>
           </View>
         </TouchableHighlight>
       </View>
