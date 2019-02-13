@@ -16,7 +16,6 @@ const {width, height} = Dimensions.get('window')
 export default class Card extends Component {
   componentWillMount() {
     this.pan = new Animated.ValueXY()
-
     this.cardPanResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: Animated.event([

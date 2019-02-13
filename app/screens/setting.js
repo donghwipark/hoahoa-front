@@ -4,11 +4,12 @@ import {
    Text,
    View,
    Switch,
-   Slider
+   Slider, 
+   Image
 } from 'react-native';
-import CircleImage from '../components/circleImage'
+import FilteringSetting from '../components/filteringSetting'
 
-export default class Matches extends React.Component {
+export default class Setting extends React.Component {
   state = {
     ageRangeValues: [19, 24],
     distanceValue: [5],
@@ -22,47 +23,13 @@ export default class Matches extends React.Component {
     //const bio = (work && work[0] && work[0].position) ? work[0].position.name : null
     return (
       <View style={styles.container}>
-        <View style={styles.profile}>
-          <CircleImage />
-          <Text style={{fontSize:20}}>박동휘</Text>
-          <Text style={{fontSize:15, color:'darkgrey'}}>개발자</Text>
-        </View>
-        <View style={styles.label}>
-          <Text>Distance</Text>
-          <Text style={{color:'darkgrey'}}>{distanceValue}km</Text>
-        </View>
-        <Slider
-          style={{margin:40}}
-          min={1}
-          max={30}
-          values={distanceValue}
-          onValuesChange={val => this.setState({distanceValue:val})}
+        <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
+        <Image 
+          style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
+          source={require('../images/homeIcon.png')}
         />
-        <View style={styles.label}>
-          <Text>Age Range</Text>
-          <Text style={{color:'darkgrey'}}>{ageRangeValues.join('-')}</Text>
-        </View>
-        <Slider
-          style={{margin:40}}
-          min={18}
-          max={70}
-          values={ageRangeValues}
-          onValuesChange={val => this.setState({ageRangeValues:val})}
-        />
-        <View style={styles.switch}>
-          <Text>Show Men</Text>
-          <Switch
-            value={showMen}
-            onValueChange={val => this.setState({showMen:val})}
-          />
-        </View>
-        <View style={styles.switch}>
-          <Text>Show Women</Text>
-          <Switch
-            value={showWomen}
-            onValueChange={val => this.setState({showWomen:val})}
-          />
-        </View>
+        <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Setting</Text>
+        <FilteringSetting/>
       </View>
     )
   }
@@ -70,8 +37,9 @@ export default class Matches extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
     backgroundColor:'white',
+    alignItems:'center',
+    justifyContent:'center',
   },
   profile: {
     flex:1,

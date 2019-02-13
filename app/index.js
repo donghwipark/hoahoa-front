@@ -9,7 +9,8 @@ import SignUpAddInfo from './screens/signupAddInfo'
 import SignUpPhoto from './screens/signupPhoto'
 import Start from './screens/start'
 import Profile from './screens/profile'
-
+import InterestsSetting from './screens/interestsSetting'
+import PrivateDetails from './screens/privateDetails'
 // const firebaseConfig = {
 //   apiKey: "AIzaSyD-8l49UiX0H8vLUS28h7KxpdnQXj_tCZU",
 //   databaseURL: "https://clonetinder-c7909.firebaseio.com",
@@ -21,12 +22,14 @@ const RouteConfigs = createStackNavigator(
     Start: {screen:Start},
     Login: {screen:Login},
     Home: {screen:Home},
-    Setting: {screen:Setting},
     Matches: {screen:Matches},
     SignUp: {screen:SignUp},
     SignUpAddInfo: {screen:SignUpAddInfo},
     SignUpPhoto: {screen:SignUpPhoto},
-    Profile: {screen:Profile}
+    Profile: {screen:Profile},
+    Setting: {screen:Setting},
+    InterestsSetting: {screen:InterestsSetting},
+    PrivateDetails: {screen:PrivateDetails}
   },
   {
     headerMode:'none',

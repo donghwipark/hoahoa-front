@@ -10,10 +10,19 @@ import {
    TouchableHighlight
 } from 'react-native';
 import CircleImage from '../components/circleImage'
+import { Button, Icon } from 'react-native-elements';
 
 export default class Profile extends React.Component {
-
-
+  goBack = () => {}
+  hoahoaSettingMove = () => {
+    this.props.navigation.navigate('Setting')
+  }
+  profileDetailsMove = () => {
+    this.props.navigation.navigate('PrivateDetails')
+  }
+  interestingSetting = () => {
+    this.props.navigation.navigate('InterestsSetting')
+  }
   render() {
     return (
       <View style={{flex:1}}>  
@@ -26,9 +35,83 @@ export default class Profile extends React.Component {
               </View>
             </View>
         </View>
-        <View style={styles.settingContainer}>
-           
-        </View>
+        <View style={styles.bottomContainer}>
+          <View style={{flex:1, flexDirection:'row'}}>
+            <Button
+              onPress={this.hoahoaSettingMove}
+              title="Hoa?Hoa! Setting"
+              icon={{
+                name: 'user',
+                type: 'font-awesome',
+                size: 20,
+                color: 'grey',
+              }}
+              iconLeft
+              iconContainerStyle={{ marginLeft: 10 }}
+              titleStyle={{ fontWeight: '700', color:'#495057' }}
+              buttonStyle={{
+                backgroundColor:'#f1f3f5',
+                borderRadius: 10,
+                shadowColor: 'grey',
+                shadowOpacity: 1.0,
+                shadowOffset: { height: 2, width: 0 },
+                height:60                
+              }}
+              containerStyle={{ width: '80%' }}
+              />
+          </View>
+          <View style={{flex:1, flexDirection:'row'}}>
+            <Button
+              onPress={this.profileDetailsMove}
+              title="Private Details"
+              icon={{
+                name: 'pencil',
+                type: 'font-awesome',
+                size: 20,
+                color: 'grey',
+              }}
+              iconLeft
+              iconContainerStyle={{ marginLeft: 10 }}
+              titleStyle={{ fontWeight: '700', color:'#495057' }}
+              buttonStyle={{
+                backgroundColor:'#f1f3f5',
+                borderRadius: 10,
+                shadowColor: 'grey',
+                shadowOpacity: 1.0,
+                shadowOffset: { height: 2, width: 0 },
+                height:60                
+              }}
+              containerStyle={{ width: '80%' }}
+              />
+          </View>
+          <View style={{flex:1, flexDirection:'row'}}>
+            <Button
+              onPress={this.interestingSetting}
+              title="Interests Setting"
+              icon={{
+                name: 'heart',
+                type: 'font-awesome',
+                size: 20,
+                color: 'grey',
+              }}
+              style={{
+                color:'grey'
+              }}
+              iconLeft
+              iconContainerStyle={{ marginLeft: 10 }}
+              titleStyle={{ fontWeight: '700', color:'#495057' }}
+              buttonStyle={{
+                backgroundColor:'#f1f3f5',
+                borderRadius: 10,
+                shadowColor: 'grey',
+                shadowOpacity: 1.0,
+                shadowOffset: { height: 2, width: 0 },
+                height:60                
+              }}
+              containerStyle={{ width: '80%' }}
+              />
+          </View>
+          </View>
       </View>
     )
   }
@@ -36,8 +119,15 @@ export default class Profile extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex:7,
     backgroundColor:'#206DDF',
+  },
+  bottomContainer: {
+    padding:40,
+    flex:8,
+    backgroundColor:'#ffffff',
+    alignItems:'center',
+    justifyContent:'center',
   },
   settingContainer: {
     flex:1,
@@ -59,23 +149,3 @@ const styles = StyleSheet.create({
     justifyContent:'center',
   },
 })
-
-
-{/* <TouchableHighlight>
-<View>  
-  <Ionicons name="ios-settings" size={20} color={'white'}/>
-  <Text>Hoa?Hoa! Setting</Text>
-</View>  
-</TouchableHighlight>
-<TouchableHighlight>
-<View>  
-  <FontAwesome name="pen" size={20} color={'white'}/>
-  <Text>Private Details</Text>
-</View>  
-</TouchableHighlight>
-<TouchableHighlight>
-<View>  
-  <FontAwesome name="heart" size={20} color={'white'}/>
-  <Text>Interests Setting</Text>
-</View>  
-</TouchableHighlight> */}

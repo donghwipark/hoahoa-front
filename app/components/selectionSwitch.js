@@ -30,10 +30,10 @@ export default class SelectionButton extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    selection :{
-      flex:1,
-      alignItems:'center',
-      width: '70%',
-    }, 
-  })
+  selection :{
+    flex:1,
+    alignItems:'center',
+    width: '70%',
+  }, 
+})
   
