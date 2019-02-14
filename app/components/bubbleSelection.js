@@ -5,13 +5,15 @@ import {
    View,
    Image,
    Animated,
+   PanResponder,
    TouchableOpacity,
    TouchableWithoutFeedback,
-   Easing
+   Easing,
+   LayoutAnimation
 } from 'react-native';
 import { Button, Icon } from 'react-native-elements';
 
-export default class BubbleSelection extends React.Component { 
+export default class BubbleSelection extends React.Component {
   constructor () {
     super()
     this.animatedValue = new Animated.Value(0)
@@ -27,22 +29,23 @@ export default class BubbleSelection extends React.Component {
       this.animatedValue,
       {
         toValue: 1,
-        duration: 10000,
+        duration: 5000,
         easing: Easing.linear
       }
     ).start(() => this.animate())
   }
 
- 
+
   render() {
     const marginLeft = this.animatedValue.interpolate({
         inputRange: [0, 1],
-        outputRange: [0, 300]
-      })
-      const opacity = this.animatedValue.interpolate({
-        inputRange: [0, 0.5, 1],
-        outputRange: [0, 1, 0]
-      })
+        outputRange: [-200, 200]
+    })
+    const marginTop = this.animatedValue.interpolate({
+      inputRange: [0, 1],
+      outputRange: [-200, 200]
+    })
+
       const movingMargin = this.animatedValue.interpolate({
         inputRange: [0, 0.5, 1],
         outputRange: [0, 300, 0]
@@ -57,67 +60,171 @@ export default class BubbleSelection extends React.Component {
       })
       return (
         <View style={styles.container}>
-          <Animated.View
-            onPress={()=>(console.log(1))}
-            style={{
-              marginLeft,
-              height: 30,
-              width: 40,
-              backgroundColor: 'red'}} />
-          <Animated.View
-            style={{
-              opacity,
-              marginTop: 10,
-              height: 30,
-              width: 40,
-              backgroundColor: 'blue'}} />
-          <Animated.View
-            style={{
-              marginLeft: movingMargin,
-              marginTop: 10,
-              height: 30,
-              width: 40,
-              backgroundColor: 'orange'}} />
-          <Animated.Text
-            style={{
-              fontSize: textSize,
-              marginTop: 10,
-              color: 'green'}} >
-              Animated Text!
-          </Animated.Text>
           <View>
-            <Animated.View style={styles.tennisBall}>
-              <TouchableWithoutFeedback style={styles.button} onPress={()=>(console.log(1))}>
-                <Text style={styles.buttonText}>Press</Text>
+            <Animated.View style={{
+                marginLeft,
+                marginTop,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'greenyellow',
+                borderRadius: 100,
+                width: 50,
+                height: 50,
+                backgroundColor: 'blue'}}>
+              <TouchableWithoutFeedback 
+                onPress={()=>(console.log(1))}>
+                <Text style={styles.buttonText}>1</Text>
               </TouchableWithoutFeedback>        
             </Animated.View>
-          </View> 
+          </View>           
+          <View>
+            <Animated.View style={{
+                marginLeft,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'greenyellow',
+                borderRadius: 100,
+                width: 50,
+                height: 50,
+                backgroundColor: 'orange'}}>
+              <TouchableWithoutFeedback 
+                onPress={()=>(console.log(2))}>
+                <Text style={styles.buttonText}>2</Text>
+              </TouchableWithoutFeedback>        
+            </Animated.View>
+          </View>
+          <View>
+            <Animated.View style={{
+                movingMargin,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'yellow',
+                borderRadius: 100,
+                width: 50,
+                height: 50,
+                backgroundColor: 'green'}}>
+              <TouchableWithoutFeedback 
+                onPress={()=>(console.log(3))}>
+                <Text style={styles.buttonText}>3</Text>
+              </TouchableWithoutFeedback>        
+            </Animated.View>
+          </View>
+          <View>
+            <Animated.View style={{
+                marginLeft,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'yellow',
+                borderRadius: 100,
+                width: 50,
+                height: 50,
+                backgroundColor: 'green'}}>
+              <TouchableWithoutFeedback 
+                onPress={()=>(console.log(4))}>
+                <Text style={styles.buttonText}>4</Text>
+              </TouchableWithoutFeedback>        
+            </Animated.View>
+          </View>
+          <View>
+            <Animated.View style={{
+                marginLeft,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'yellow',
+                borderRadius: 100,
+                width: 50,
+                height: 50,
+                backgroundColor: 'green'}}>
+              <TouchableWithoutFeedback 
+                onPress={()=>(console.log(5))}>
+                <Text style={styles.buttonText}>5</Text>
+              </TouchableWithoutFeedback>        
+            </Animated.View>
+          </View>
+          <View>
+            <Animated.View style={{
+                marginLeft,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'yellow',
+                borderRadius: 100,
+                width: 50,
+                height: 50,
+                backgroundColor: 'green'}}>
+              <TouchableWithoutFeedback 
+                onPress={()=>(console.log(6))}>
+                <Text style={styles.buttonText}>6</Text>
+              </TouchableWithoutFeedback>        
+            </Animated.View>
+          </View>
+          <View>
+            <Animated.View style={{
+                marginLeft,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'yellow',
+                borderRadius: 100,
+                width: 50,
+                height: 50,
+                backgroundColor: 'green'}}>
+              <TouchableWithoutFeedback 
+                onPress={()=>(console.log(7))}>
+                <Text style={styles.buttonText}>7</Text>
+              </TouchableWithoutFeedback>        
+            </Animated.View>
+          </View>
+          <View>
+            <Animated.View style={{
+                marginLeft,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: 'yellow',
+                borderRadius: 100,
+                width: 50,
+                height: 50,
+                margin:10,
+                backgroundColor: 'green'}}>
+              <TouchableWithoutFeedback 
+                onPress={()=>(console.log(8))}>
+                <Text style={styles.buttonText}>8</Text>
+              </TouchableWithoutFeedback>        
+            </Animated.View>
+          </View>  
         </View>
     )    
   }
 }
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      paddingTop: 150
+  container: {
+    flex: 1,
+    paddingTop: 150
+  },
+  tennisBall: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: 'greenyellow',
+      borderRadius: 100,
+      width: 100,
+      height: 100,
     },
-    tennisBall: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'greenyellow',
-        borderRadius: 100,
-        width: 100,
-        height: 100,
-      },
-    button: {
-        paddingTop: 24,
-        paddingBottom: 24,
-        backgroundColor:'red'
-      },
-    buttonText: {
-        fontSize: 24,
-        color: '#333',
-      }
-  })
+  button: {
+      paddingTop: 24,
+      paddingBottom: 24,
+      backgroundColor:'red'
+    },
+  buttonText: {
+      fontSize: 24,
+      color: 'white',
+      padding:20,
+    }
+})

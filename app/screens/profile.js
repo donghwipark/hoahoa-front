@@ -31,7 +31,7 @@ export default class Profile extends React.Component {
               <CircleImage/>
               <View style={styles.profileInfo}>
                 <Text style={{fontSize:30, color:'white'}}>Donghwi Park</Text>
-                <Text style={{fontSize:30, color:'darkgrey'}}> Edit</Text>
+                <Text style={{fontSize:20, color:'darkgrey'}}> Edit</Text>
               </View>
             </View>
         </View>
@@ -53,7 +53,7 @@ export default class Profile extends React.Component {
                 backgroundColor:'#f1f3f5',
                 borderRadius: 10,
                 shadowColor: 'grey',
-                shadowOpacity: 1.0,
+                shadowOpacity: 0.3,
                 shadowOffset: { height: 2, width: 0 },
                 height:60                
               }}
@@ -77,7 +77,7 @@ export default class Profile extends React.Component {
                 backgroundColor:'#f1f3f5',
                 borderRadius: 10,
                 shadowColor: 'grey',
-                shadowOpacity: 1.0,
+                shadowOpacity: 0.3,
                 shadowOffset: { height: 2, width: 0 },
                 height:60                
               }}
@@ -104,7 +104,7 @@ export default class Profile extends React.Component {
                 backgroundColor:'#f1f3f5',
                 borderRadius: 10,
                 shadowColor: 'grey',
-                shadowOpacity: 1.0,
+                shadowOpacity: 0.3,
                 shadowOffset: { height: 2, width: 0 },
                 height:60                
               }}

@@ -25,8 +25,8 @@ export default class homeMatchesButton extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    height:40,
-    width:40,
+    height:50,
+    width:50,
     margin:15,
     marginTop:50,
     //flexDirection:'column',    
