@@ -48,9 +48,9 @@ export default class Profile extends React.Component {
               }}
               iconLeft
               iconContainerStyle={{ marginLeft: 10 }}
-              titleStyle={{ fontWeight: '700', color:'#495057' }}
+              titleStyle={{ fontWeight: '700', color:'grey' }}
               buttonStyle={{
-                backgroundColor:'#f1f3f5',
+                backgroundColor:'#fff',
                 borderRadius: 10,
                 shadowColor: 'grey',
                 shadowOpacity: 0.3,
@@ -72,9 +72,9 @@ export default class Profile extends React.Component {
               }}
               iconLeft
               iconContainerStyle={{ marginLeft: 10 }}
-              titleStyle={{ fontWeight: '700', color:'#495057' }}
+              titleStyle={{ fontWeight: '700', color:'grey' }}
               buttonStyle={{
-                backgroundColor:'#f1f3f5',
+                backgroundColor:'#fff',
                 borderRadius: 10,
                 shadowColor: 'grey',
                 shadowOpacity: 0.3,
@@ -99,9 +99,9 @@ export default class Profile extends React.Component {
               }}
               iconLeft
               iconContainerStyle={{ marginLeft: 10 }}
-              titleStyle={{ fontWeight: '700', color:'#495057' }}
+              titleStyle={{ fontWeight: '700', color:'grey' }}
               buttonStyle={{
-                backgroundColor:'#f1f3f5',
+                backgroundColor:'#fff',
                 borderRadius: 10,
                 shadowColor: 'grey',
                 shadowOpacity: 0.3,

@@ -14,7 +14,9 @@ export default class InterestsSetting extends React.Component {
           <Text style={styles.text}>What are your interests?</Text>
           <Text style={styles.underText}>find your interest keywords</Text>
         </View>       
-        <BubbleSelection/>
+        <View style={styles.bubble}>
+          <BubbleSelection />
+        </View>
       </View>
     );
   }
@@ -22,24 +24,33 @@ export default class InterestsSetting extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex:1,
     alignItems: 'center',
   },
   upContainer: {
+    position:'relative',
     backgroundColor:"#206DDF",
     alignItems: 'center',
     width:'100%',
-    height:'40%',
+    height:200,
+    marginBottom:220,
   },
   text:{
     color:'white',
     fontSize:30,
     top:'30%',
     fontWeight:'bold',
-    marginBottom:5
+    marginBottom:10
   },
   underText:{
     color:'#868e96',
     fontSize:17,
     top:'25%',
+  },
+  bubble:{
+    position:'relative',
+    marginBottom:5,
+    marginTop:5,
+    padding:15
   }
 });
