@@ -20,6 +20,7 @@ export default class Login extends React.Component {
   }
 
 
+
   render() {
     return (
       <View style={styles.container}>
@@ -36,7 +37,10 @@ export default class Login extends React.Component {
           <FacebookButton onPress={this.login} />
         </View>
         <View style={styles.kakaotalkButton}>
-          <KakaotalkButton onPress={this.login} />
+          <KakaotalkButton onPress={() =>
+    this.props.navigation.push('Home', {
+      itemId: Math.floor(Math.random() * 100),
+    })} />
         </View>
         <View style={{flex:1, flexDirection:'row'}}>
           <Text style={{fontSize:20, color:'grey'}}>Don't have an account?</Text>

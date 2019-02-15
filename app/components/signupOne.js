@@ -11,11 +11,7 @@ import {
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
 
 export default class SignUpOne extends React.Component {
-  state = {
-    email: '',
-    password: '',
-    nickname: '',
-  }
+  state = this.props
   handleEmail = (text) => {
     this.setState({ email: text })
   }
@@ -25,11 +21,9 @@ export default class SignUpOne extends React.Component {
   handleNickname = (text) => {
     this.setState({ nickname: text })
   }
-  signUp = () => {
-    this.props.navigation.navigate('SignUpPhoto')
-  }
 
   render () {
+    console.log(this.state)
     return (
       <View>
         <View >
@@ -77,7 +71,9 @@ export default class SignUpOne extends React.Component {
         <View style={{margin:0}}> 
           <TouchableHighlight 
             style={styles.nextButton}
-            onPress={this.props.onPress}>
+            onPress={() => {
+              this.props.onPress()
+            }}>
             <View style={styles.nextButtoncontainer}>
               <Text style={styles.buttonText}>Next</Text>
             </View>

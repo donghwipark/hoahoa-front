@@ -15,17 +15,16 @@ import SignUpTwo from '../components/signupTwo'
 
 export default class SignUp extends React.Component {
   state = {
-    email: '',
+    email: 'dddd',
     password: '',
     nickname: '',
+    age:'',
+    gender:'',
+    photo:'',
   }
-  signIn = () => {
-    this.props.navigation.navigate('Login')
-  }
-  nextPage = () => {
-    this.props.navigation.navigate('SignUpAddInfo')
-  }
+
   render () {
+    console.log(this.props.navigation.state.params)
     return (
       <View style={styles.container}>
         <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
@@ -35,11 +34,17 @@ export default class SignUp extends React.Component {
         />
         <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Sign Up</Text>
         <View style={styles.signin}>
-          <SignUpOne onPress={this.nextPage}/>
+          <SignUpOne onPress={()=>{
+              this.props.navigation.navigate('SignUpAddInfo')
+            }}
+            signUpInfo={this.state}  
+          />
         </View>
         <View style={{flex:1, flexDirection:'row'}}>
           <Text style={{fontSize:20, color:'grey'}}>Already have an account?</Text>
-          <TouchableHighlight onPress={this.signIn}>        
+          <TouchableHighlight onPress={() => {
+            this.props.navigation.navigate('Login')
+          }}>        
             <View>
               <Text style={{fontWeight:'bold', fontSize:20, color:'grey'}}> Sign In</Text>
             </View>

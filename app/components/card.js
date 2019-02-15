@@ -45,7 +45,6 @@ export default class Card extends Component {
     const {birthday, name, bio, id, profilePhoto} = this.props.profile
     const profileBday = moment(birthday, 'MM/DD/YYYY')
     const profileAge = moment().diff(profileBday, 'years')
-    const fbImage = `https://graph.facebook.com/${id}/picture?height=500`
 
     const rotateCard = this.pan.x.interpolate({
       inputRange: [-200, 0, 200],

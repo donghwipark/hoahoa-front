@@ -8,7 +8,6 @@ import {
 } from 'react-native'
 import {SimpleLineIcons} from '@expo/vector-icons'
 
-
 export default class homeMatchesButton extends React.Component {
   render () {
     return (

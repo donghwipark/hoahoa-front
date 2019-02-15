@@ -3,15 +3,10 @@ import {
    StyleSheet,
    Text,
    View,
-   Image,
    Animated,
-   PanResponder,
-   TouchableOpacity,
    TouchableWithoutFeedback,
    Easing,
-   LayoutAnimation
 } from 'react-native';
-import { Button, Icon } from 'react-native-elements';
 
 export default class BubbleSelection extends React.Component {
   constructor () {
@@ -29,7 +24,7 @@ export default class BubbleSelection extends React.Component {
       this.animatedValue,
       {
         toValue: 1,
-        duration: 10000,
+        duration: 20000,
         easing: Easing.linear
       }
     ).start(() => this.animate())
@@ -37,8 +32,8 @@ export default class BubbleSelection extends React.Component {
 
   render() {
     const movingMarginOne = this.animatedValue.interpolate({
-      inputRange: [0, 0.25, 0.5, 0.75, 1],
-      outputRange: [-200, -100 , -50, -100, -200]
+      inputRange: [0, 0.5, 1],
+      outputRange: [-200, -130, -200]
     }) 
     const movingMarginTwo = this.animatedValue.interpolate({
       inputRange: [0, 0.25, 0.5, 0.75, 1],
@@ -54,32 +49,20 @@ export default class BubbleSelection extends React.Component {
     })
     const movingFive = this.animatedValue.interpolate({
       inputRange: [0, 0.25, 0.5, 0.75, 1],
-      outputRange: [200, 100, 0, 100, 200]
+      outputRange: [150, 100, 0, 100, 150]
     })
     const movingSix = this.animatedValue.interpolate({
       inputRange: [0, 0.5, 1],
       outputRange: [-200, 100, -200]
     }) 
+    const movingMarginSeven = this.animatedValue.interpolate({
+      inputRange: [0, 0.5, 1],
+      outputRange: [-20, 40, -20]
+    })
     const movingEight = this.animatedValue.interpolate({
       inputRange: [0, 0.5, 1],
       outputRange: [-200, 100, -200]
     })
-    const movingMargin = this.animatedValue.interpolate({
-      inputRange: [0, 0.25, 0.5, 0.75, 1],
-      outputRange: [-200, -100, 100, -100, -200]
-    })
-    const movingMarginTop = this.animatedValue.interpolate({
-      inputRange: [0, 0.25, 0.5, 0.75, 1],
-      outputRange: [-200, -100, 0, 100, 150]
-    }) 
-
-
-    const movingMarginSeven = this.animatedValue.interpolate({
-      inputRange: [0, 0.25, 0.5, 0.75, 1],
-      outputRange: [100, 80, 50, 70, 100]
-    })
-
-
     return (
       <View style={styles.bubbles}>
         <View>
@@ -158,6 +141,7 @@ export default class BubbleSelection extends React.Component {
         <View>
           <Animated.View style={{
               marginTop:movingFive,
+              marginLeft:-100,
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',

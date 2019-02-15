@@ -4,7 +4,6 @@ import {
   Image
 } from 'react-native'
 
-
 export default class HomeButton extends React.Component {
   render () {
     return (

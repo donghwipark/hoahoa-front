@@ -12,7 +12,6 @@ export default class App extends Component {
     profileIndex: 0,  
     gender: '',
   }
-
   nextCard = () => {
     this.setState({profileIndex: this.state.profileIndex + 1})
   }
@@ -49,6 +48,7 @@ export default class App extends Component {
                 key={profile.id}
                 profile={profile}
                 onSwipeOff={this.nextCard}
+
               />
             )
             })}

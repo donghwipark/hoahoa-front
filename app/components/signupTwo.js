@@ -58,8 +58,8 @@ export default class SignUpTwo extends React.Component {
               selectedColor='white'
               buttonColor='#206DDF'
               options={[
-                  { label: "Female", value: "female" }, 
-                  { label: "Male", value: "male"}
+                  { label: "Female", value: "woman" }, 
+                  { label: "Male", value: "man"}
               ]}
             />
           </View>

@@ -28,9 +28,7 @@ export default class SignUpAddInfo extends React.Component {
   handleNickname = (text) => {
     this.setState({ location: text })
   }
-  nextPage = () => {
-    this.props.navigation.navigate('SignUpPhoto')
-  }
+
   render () {
     return (
       <View style={styles.container}>
@@ -41,7 +39,9 @@ export default class SignUpAddInfo extends React.Component {
         />
         <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Sign Up</Text>
         <View style={styles.signin}>
-          <SignUpTwo onPress={this.nextPage}/>
+          <SignUpTwo onPress={()=>{
+            this.props.navigation.navigate('SignUpPhoto')
+          }}/>
         </View>
         <View style={{flex:1, flexDirection:'row'}}>
           <Text style={{fontSize:20, color:'grey'}}>Already have an account?</Text>

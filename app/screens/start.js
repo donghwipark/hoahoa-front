@@ -9,14 +9,6 @@ import SignUpButton from '../components/signUpButton';
 import SignInButton from '../components/signInButton'
 
 export default class Start extends React.Component {
-  login = () => {
-    this.props.navigation.navigate('Login')
-  }
-  signUp = () => {
-    this.props.navigation.navigate('SignUp')
-  }
-
-
   render() {
     return (
       <View style={styles.container}>
@@ -30,10 +22,14 @@ export default class Start extends React.Component {
         />
         <Text style={{fontSize:20, marginBottom: 140, color:'grey'}}>find your friend</Text>        
         <View style={styles.facebookButton} >
-          <SignUpButton onPress={this.signUp} />
+          <SignUpButton onPress={() => {
+            this.props.navigation.navigate('SignUp')
+          }}/>
         </View>
         <View style={styles.facebookButton} >
-          <SignInButton onPress={this.login} />
+          <SignInButton onPress={() => {
+            this.props.navigation.navigate('Login')
+          }} />
         </View> 
        
       </View>

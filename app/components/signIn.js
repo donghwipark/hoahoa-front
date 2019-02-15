@@ -17,21 +17,23 @@ export default class SignIn extends React.Component {
   }
 
   signIn = () => {
-    return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users")
+    console.log(this.state.email)
+    return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/login",{
+      method:'POST',
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+      })  
+    })
       .then((response) => response.json())
       .then((response) => {
-        const checkEmailAndPassword = (element) => {
-          if ( (element.email ===this.state.email) && (element.password === this.state.password) ) {
-            return true
-          }
-        }        
-        if (response.some(checkEmailAndPassword)) {
-          this.props.onPress()  
-        } else {
-          alert('Email or password is wrong')
-        }     
+        console.log(response) 
       })
       .catch((error) => {
+        console.log('Network Error')
         console.error(error)  
     })
   }
