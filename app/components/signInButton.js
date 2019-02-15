@@ -12,7 +12,7 @@ export default class signInButton extends React.Component {
       <TouchableHighlight 
         style={styles.button}
         onPress={this.props.onPress}
-        >        
+      >        
         <View style={styles.buttoncontainer}>
           <Text style={styles.buttonText}>Sign In</Text>
         </View>

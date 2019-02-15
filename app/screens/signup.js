@@ -11,7 +11,7 @@ import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/
 
 export default class SignUp extends React.Component {
   state = {
-    email: 'dddd',
+    email: '',
     password: '',
     nickname: '',
     age:'',
@@ -52,7 +52,7 @@ export default class SignUp extends React.Component {
             <View style={styles.buttoncontainer}>
               <TextInput style = {styles.input}
                 placeholder='Nickname'
-                onChangeText={(text) => this.setState({password: text})}
+                onChangeText={(text) => this.setState({nickname: text})}
               />
               <MaterialCommunityIcons name="account-location" size={20} color={'#adb5bd'}/>  
             </View>  
@@ -83,7 +83,7 @@ export default class SignUp extends React.Component {
             <TouchableHighlight 
               style={styles.nextButton}
               onPress={() => {
-                this.props.navigation.navigate('SignUpAddInfo')
+                this.props.navigation.navigate('SignUpAddInfo', this.state)
               }}>
               <View style={styles.nextButtoncontainer}>
                 <Text style={styles.buttonText}>Next</Text>
