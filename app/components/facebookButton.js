@@ -8,6 +8,8 @@ import {
 import {FontAwesome} from '@expo/vector-icons'
 
 export default class FacebookButton extends React.Component {
+
+  
   render () {
     return (
       <TouchableHighlight 

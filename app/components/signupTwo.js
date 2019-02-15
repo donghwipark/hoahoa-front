@@ -29,9 +29,6 @@ export default class SignUpTwo extends React.Component {
   handleNickname = (text) => {
     this.setState({ nickname: text })
   }
-  nextPage = () => {
-    this.props.navigation.navigate('SignUpPhoto')
-  }
   render () {
     return (
       <View>
