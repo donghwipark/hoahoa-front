@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import CircleImage from '../components/circleImage'
 import { Button, Icon } from 'react-native-elements';
+import { LinearGradient } from 'expo';
 
 export default class Profile extends React.Component {
   goBack = () => {}
@@ -27,6 +28,13 @@ export default class Profile extends React.Component {
     return (
       <View style={{flex:1}}>  
         <View style={styles.container}>
+            <LinearGradient
+              colors={['#4dabf7', '#206DDF', '#1864ab']}
+              style={{position:'absolute', width:'100%', height:'100%', backgroundColor:'#206DDF'}}
+              start={{ x: 0, y: 1 }}
+              end={{ x: 1, y: 1 }}
+            >
+            </LinearGradient>
             <View style={styles.profile}>
               <CircleImage/>
               <View style={styles.profileInfo}>

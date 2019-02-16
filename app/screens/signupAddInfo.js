@@ -3,40 +3,45 @@ import {
   View,
   Text,
   Image,
-  TextInput,
-  ScrollView,
   StyleSheet,
-  Button,
   TouchableHighlight
 } from 'react-native';
 import DatePicker from 'react-native-datepicker'
+import moment from 'moment'
 import SwitchSelector from "react-native-switch-selector";
-
-import {MaterialCommunityIcons, FontAwesome, MaterialIcons} from '@expo/vector-icons'
 // will seperately add information about birthday, gender, location  
+import { LinearGradient } from 'expo'
 
 export default class SignUpAddInfo extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
+        <LinearGradient
+          colors={['#4dabf7', '#206DDF', '#1864ab']}
+          style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 1 }}
+        >
+        </LinearGradient>  
         <Image 
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
         />
         <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Sign Up</Text>
         <View style={styles.signin}>
-          <View>
+          <View style={styles.input}>
             <Text style={styles.text}>Birthday</Text>
             <View style={styles.datecontainer}>
               <DatePicker style = {styles.input}
-                minDate="1950-05-01"
-                maxDate="2000-06-01"
-                confirmBtnText="Confirm"
-                cancelBtnText="Cancel"
-                onDateChange={
-                  (value) => this.props.navigation.setParams({ age: value })
-                }
+                minDate="1900-01-01"
+                maxDate="2000-01-01"
+                confirmBtnText = "Confirm"
+                cancelBtnText = "Cancel"
+                onDateChange = {
+                  (value) => {
+                    let age = moment().diff(value, 'years')
+                    this.props.navigation.setParams({ age: age })
+                }}
                 />
             </View>
           </View>
@@ -44,9 +49,10 @@ export default class SignUpAddInfo extends React.Component {
             <Text style={styles.text}>Gender</Text>
             <View>
               <SwitchSelector
-                style={{alignItems:'center', marginBottom:35}}
+                style={{alignItems:'center', padding:5}}
                 initial={0}
                 onPress={
+                  
                   (value) => this.props.navigation.setParams({ gender: value })
                 } 
                 textColor='#adb5bd'
@@ -59,14 +65,23 @@ export default class SignUpAddInfo extends React.Component {
               />
             </View>
           </View>     
-          <View style={{margin:0}}> 
+          <View style={styles.input}> 
             <TouchableHighlight 
               style={styles.nextButton}
               onPress={() => {
                 this.props.navigation.navigate('SignUpPhoto', this.props.navigation.state)
               }}>
               <View style={styles.nextButtoncontainer}>
-                <Text style={styles.buttonText}>Next</Text>
+                <LinearGradient
+                  colors={['#4dabf7', '#206DDF', '#1864ab']}
+                  style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+                  justifyContent:'center', width:250
+                }}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Text style={styles.buttonText}>Next</Text>
+                </LinearGradient>
               </View>
             </TouchableHighlight>
           </View>
@@ -74,8 +89,8 @@ export default class SignUpAddInfo extends React.Component {
         <View style={{flex:1, flexDirection:'row'}}>
           <Text style={{fontSize:20, color:'grey'}}>Already have an account?</Text>
           <TouchableHighlight onPress={() => {
-                this.props.navigation.navigate('Login')
-              }}>        
+            this.props.navigation.navigate('Login')
+          }}>        
             <View>
               <Text style={{fontWeight:'bold', fontSize:20, color:'#495057'}}> Sign In</Text>
             </View>
@@ -92,20 +107,17 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   signin: {
+    flex:1,
     backgroundColor: '#fff',
-    padding: 45,
+    width:'90%',
+    height:'50%',
     borderRadius: 10, 
     borderWidth: 0.5,
     borderColor: 'lightgrey',
     justifyContent:'center' , 
     alignItems: 'center',
-    marginBottom:20
-  },
-  facebookButton: {
-    alignItems: 'center',
-  },
-  kakaotalkButton:{
-    alignItems: 'center',
+    marginBottom:0,
+    padding:20
   },
   text:{
     alignItems: 'center',
@@ -117,7 +129,7 @@ const styles = StyleSheet.create({
     flexDirection:'row',
     alignItems:'center',
     justifyContent:'center',
-    marginBottom: 20,
+    marginBottom: 5,
   },
   buttoncontainer:{
     flexDirection:'row',
@@ -130,7 +142,8 @@ const styles = StyleSheet.create({
   input:{
     height: 40,
     width: 250,
-    marginBottom:50
+    marginBottom:10,
+    flex:1
   },
   nextButton: {
     height:50,

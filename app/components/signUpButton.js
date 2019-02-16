@@ -5,6 +5,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native'
+import { LinearGradient } from 'expo';
 
 export default class signUpButton extends React.Component {
   login() {this.props.navigation.navigate('SignUp')}
@@ -13,9 +14,18 @@ export default class signUpButton extends React.Component {
       <TouchableHighlight 
         style={styles.button}
         onPress={this.props.onPress}
-        >        
+      >        
         <View style={styles.buttoncontainer}>
-          <Text style={styles.buttonText}>Sign Up</Text>
+          <LinearGradient
+            colors={['#4dabf7', '#206DDF', '#1864ab']}
+            style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+            justifyContent:'center', width:250, 
+          }}
+            start={{ x: 0, y: 1 }}
+            end={{ x: 1, y: 1 }}
+          >
+            <Text style={styles.buttonText}>Sign Up</Text>
+          </LinearGradient>
         </View>
       </TouchableHighlight>
     )  
@@ -33,7 +43,6 @@ const styles = StyleSheet.create({
   },
   buttoncontainer: {
     flex:1,
-    flexDirection:'row',
     alignItems:'center',
     justifyContent:'center'  
   },

@@ -13,6 +13,7 @@ export default class App extends Component {
     gender: '',
   }
   nextCard = () => {
+    console.log(1)
     this.setState({profileIndex: this.state.profileIndex + 1})
   }
 

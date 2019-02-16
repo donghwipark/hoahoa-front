@@ -8,6 +8,7 @@ import {
   Text,
 } from 'react-native';
 import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
+import { LinearGradient } from 'expo';
 
 export default class SignUp extends React.Component {
   state = {
@@ -30,7 +31,13 @@ export default class SignUp extends React.Component {
   render () {
     return (
       <View style={styles.container}>
-        <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
+        <LinearGradient
+          colors={['#4dabf7', '#206DDF', '#1864ab']}
+          style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 1 }}
+        >
+        </LinearGradient>        
         <Image 
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
@@ -86,7 +93,16 @@ export default class SignUp extends React.Component {
                 this.props.navigation.navigate('SignUpAddInfo', this.state)
               }}>
               <View style={styles.nextButtoncontainer}>
-                <Text style={styles.buttonText}>Next</Text>
+                <LinearGradient
+                  colors={['#4dabf7', '#206DDF', '#1864ab']}
+                  style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+                  justifyContent:'center', width:250, 
+                }}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 1, y: 1 }}
+                >
+                  <Text style={styles.buttonText}>Next</Text>
+                </LinearGradient>
               </View>
             </TouchableHighlight>
           </View>

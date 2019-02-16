@@ -8,6 +8,7 @@ import {
    Image
 } from 'react-native';
 import FilteringSetting from '../components/filteringSetting'
+import { LinearGradient } from 'expo';
 
 export default class Setting extends React.Component {
   state = {
@@ -22,7 +23,13 @@ export default class Setting extends React.Component {
     //const bio = (work && work[0] && work[0].position) ? work[0].position.name : null
     return (
       <View style={styles.container}>
-        <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
+        <LinearGradient
+          colors={['#4dabf7', '#206DDF', '#1864ab']}
+          style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 1 }}
+        >
+        </LinearGradient>
         <Image 
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}

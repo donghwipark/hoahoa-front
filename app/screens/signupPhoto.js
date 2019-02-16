@@ -9,30 +9,36 @@ import {
   TouchableOpacity,
   TouchableHighlight
 } from 'react-native';
-import { ImagePicker, Permissions } from 'expo';
+import { ImagePicker, Permissions, LinearGradient } from 'expo';
 // will seperately add information about birthday, gender, location  
 
 export default class SignUpPhoto extends React.Component {
   signUp = () => {
-    console.log(this.state.email)
+    const a = {
+      "nickname": "test3",
+      "email": "test3@naver.com",
+      "password": "514411",
+      "age": "26",
+      "gender": "man"
+   }
     return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/signup",{
       method:'POST',
       headers: {
           "Content-Type": "application/json",
       },
-      body: JSON.stringify(this.props.navigation.state.params)  
+      body: JSON.stringify(a)  
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response) 
+        alert('Sign up success')
+        this.props.navigation.navigate('Home')
       })
       .catch((error) => {
-        console.log('Network Error')
         console.error(error)  
     })
   }
   state = {
-    image: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/donghwipark.png', 
+    photo: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/donghwipark.png', 
   }
   
   selectPicture = async () => {
@@ -41,7 +47,7 @@ export default class SignUpPhoto extends React.Component {
       aspect: 1,
       allowsEditing: true,
     });
-    if (!cancelled) this.setState({ image: uri });
+    if (!cancelled) this.setState({ photo: uri });
   };
 
   takePicture = async () => {
@@ -49,14 +55,21 @@ export default class SignUpPhoto extends React.Component {
     const { cancelled, uri } = await ImagePicker.launchCameraAsync({
       allowsEditing: true,
     });
-    this.setState({ image: uri });
+    this.setState({ photo: uri });
   };
 
   render () {
-    console.log(this.props)
+    console.log(this.props.navigation.state.params.params.password)
+
     return (
       <View style={styles.container}>
-        <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
+        <LinearGradient
+          colors={['#4dabf7', '#206DDF', '#1864ab']}
+          style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 1 }}
+        >
+        </LinearGradient>  
         <Image 
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
@@ -76,7 +89,16 @@ export default class SignUpPhoto extends React.Component {
             style={styles.nextButton}
             onPress={this.signUp}>
             <View style={styles.nextButtoncontainer}>
-              <Text style={styles.buttonText}>Sign Up</Text>
+              <LinearGradient
+                  colors={['#4dabf7', '#206DDF', '#1864ab']}
+                  style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+                  justifyContent:'center', width:250, 
+                }}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 1, y: 1 }}
+              >
+                <Text style={styles.buttonText}>Sign Up</Text>
+              </LinearGradient>  
             </View>
           </TouchableHighlight>
         </View>

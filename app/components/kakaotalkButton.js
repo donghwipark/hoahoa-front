@@ -6,6 +6,7 @@ import {
   StyleSheet,
 } from 'react-native'
 import Ionicons from '@expo/vector-icons/Ionicons';
+import { LinearGradient } from 'expo';
 
 export default class KakaotalkButton extends React.Component {
   login() {this.props.navigation.navigate('Home')}
@@ -16,8 +17,17 @@ export default class KakaotalkButton extends React.Component {
         onPress={this.props.onPress}
         >
         <View style={styles.buttoncontainer}>
-          <Ionicons name="ios-chatbubbles" size={20} color={'black'}/>
-          <Text style={styles.buttonText}>Login with Kakaotalk</Text>
+          <LinearGradient
+            colors={['#ffec99', '#fef01b', '#fef01b']}
+            style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+            justifyContent:'center', width:250, 
+          }}
+            start={{ x: 0, y: 1 }}
+            end={{ x: 1, y: 1 }}
+          >
+            <Ionicons name="ios-chatbubbles" size={20} color={'black'}/>
+            <Text style={styles.buttonText}>Login with Kakaotalk</Text>
+          </LinearGradient>  
         </View>
       </TouchableHighlight>
     )  

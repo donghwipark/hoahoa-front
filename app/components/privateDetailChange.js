@@ -9,6 +9,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import {Entypo} from '@expo/vector-icons'
+import { LinearGradient } from 'expo'
 
 export default class PrivateDetailChange extends React.Component {
   state = {
@@ -69,7 +70,16 @@ export default class PrivateDetailChange extends React.Component {
             style={styles.nextButton}
             onPress={this.props.onPress}>
             <View style={styles.nextButtoncontainer}>
-              <Text style={styles.buttonText}>Change</Text>
+              <LinearGradient
+                  colors={['#4dabf7', '#206DDF', '#1864ab']}
+                  style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+                  justifyContent:'center', width:250, 
+                }}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 1, y: 1 }}
+              >
+                <Text style={styles.buttonText}>Change</Text>
+              </LinearGradient>  
             </View>
           </TouchableHighlight>
         </View>

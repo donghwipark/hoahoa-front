@@ -6,6 +6,7 @@ import {
   StyleSheet,
 } from 'react-native'
 import {FontAwesome} from '@expo/vector-icons'
+import { LinearGradient } from 'expo';
 
 export default class FacebookButton extends React.Component {
 

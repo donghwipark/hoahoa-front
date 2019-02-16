@@ -9,6 +9,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import {MaterialCommunityIcons, Entypo} from '@expo/vector-icons'
+import { LinearGradient } from 'expo';
 
 export default class SignIn extends React.Component {
   state = {
@@ -30,13 +31,34 @@ export default class SignIn extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        console.log(response) 
+        this.getUserInfo()
+        if (response.error) {
+          alert(response.error)
+        } else {
+          console.log(response)
+          this.props.onPress()
+        }
       })
       .catch((error) => {
-        console.log('Network Error')
         console.error(error)  
     })
   }
+
+  getUserInfo = () => {
+    return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/")
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.error) {
+          alert(response.error)
+        } else {
+          console.log('유저정보',response)
+        }
+      })
+      .catch((error) => {
+        console.error(error)  
+    })
+  }
+
   render () {
     return (
       <View style={{padding: 10}}>
@@ -65,7 +87,16 @@ export default class SignIn extends React.Component {
             style={styles.loginButton}
             onPress={this.signIn}>        
             <View style={styles.loginButtoncontainer}>
-              <Text style={styles.buttonText}>Sign In</Text>
+              <LinearGradient
+                colors={['#4dabf7', '#206DDF', '#1864ab']}
+                style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+                justifyContent:'center', width:250, 
+              }}
+                start={{ x: 0, y: 1 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Text style={styles.buttonText}>Sign In</Text>
+              </LinearGradient>  
             </View>
           </TouchableHighlight>
         </View>

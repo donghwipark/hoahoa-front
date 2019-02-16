@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor:"white",
     flexDirection:'column',
     borderWidth: 0.5,
-    borderColor: '#206DDF',
+    borderColor: '#339af0',
     borderRadius: 50, 
     marginBottom: 15, 
   },

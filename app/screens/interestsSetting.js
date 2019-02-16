@@ -6,11 +6,20 @@ import {
    Image,
 } from 'react-native';
 import BubbleSelection from '../components/bubbleSelection'
+import { LinearGradient } from 'expo';
+
 export default class InterestsSetting extends React.Component {
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.upContainer}>
+          <LinearGradient
+            colors={['#4dabf7', '#206DDF', '#1864ab']}
+            style={{position:'absolute', width:'100%', height:'100%', backgroundColor:'#206DDF'}}
+            start={{ x: 0, y: 1 }}
+            end={{ x: 1, y: 1 }}
+          >
+          </LinearGradient>  
           <Text style={styles.text}>What are your interests?</Text>
           <Text style={styles.underText}>find your interest keywords</Text>
         </View>       

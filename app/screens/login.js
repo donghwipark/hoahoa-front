@@ -9,42 +9,42 @@ import {
 import FacebookButton from '../components/facebookButton'
 import KakaotalkButton from '../components/kakaotalkButton'
 import SignIn from '../components/signIn';
-import SignUpButton from '../components/signUpButton';
+import { LinearGradient } from 'expo';
 
 export default class Login extends React.Component {
-  login = () => {
-    this.props.navigation.navigate('Home')
+  login () {
   }
-  signUp = () => {
-    this.props.navigation.navigate('SignUp')
-  }
-
-
-
   render() {
     return (
       <View style={styles.container}>
-        <View style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}></View>
+        <LinearGradient
+          colors={['#4dabf7', '#206DDF', '#1864ab']}
+          style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}
+          start={{ x: 0, y: 1 }}
+          end={{ x: 1, y: 1 }}
+        >
+        </LinearGradient>
         <Image 
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
         />
         <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Sign In</Text>
         <View style={styles.login}>
-          <SignIn onPress={this.login}/>
+          <SignIn onPress={ () => {this.props.navigation.navigate('Home')}}/>
         </View>
         <View style={styles.facebookButton} >
           <FacebookButton onPress={this.login} />
         </View>
         <View style={styles.kakaotalkButton}>
           <KakaotalkButton onPress={() =>
-    this.props.navigation.push('Home', {
-      itemId: Math.floor(Math.random() * 100),
-    })} />
+            this.props.navigation.push('Home', {
+           })} />
         </View>
         <View style={{flex:1, flexDirection:'row'}}>
           <Text style={{fontSize:20, color:'grey'}}>Don't have an account?</Text>
-          <TouchableHighlight onPress={this.signUp}>        
+          <TouchableHighlight onPress={
+            () => {this.props.navigation.navigate('SignUp')}
+          }>        
             <View>
               <Text style={{fontWeight:'bold', fontSize:20, color:'grey'}}> Create Now</Text>
             </View>
@@ -55,8 +55,6 @@ export default class Login extends React.Component {
   }
 }
 
-
-//206DDF
 const styles = StyleSheet.create({
   container: {
     backgroundColor:"white",
