@@ -42,14 +42,13 @@ export default class Card extends Component {
   }
 
   render() {
-    const {birthday, name, bio, id, profilePhoto} = this.props.profile
-    const profileBday = moment(birthday, 'MM/DD/YYYY')
-    const profileAge = moment().diff(profileBday, 'years')
-
+    const {age, nickname, bio, id, } = this.props.profile
+    const { picture_address } = this.props.profile.pictures[0]
     const rotateCard = this.pan.x.interpolate({
       inputRange: [-200, 0, 200],
       outputRange: ['10deg', '0deg', '-10deg'],
     })
+    
     const animatedStyle = {
       transform: [
         {translateX: this.pan.x},
@@ -64,10 +63,10 @@ export default class Card extends Component {
         style={[styles.card, animatedStyle]}>
         <Image
           style={{flex:1}}
-          source={{uri: profilePhoto}}
+          source={{uri: picture_address}}
         />
         <View style={{margin:20}}>
-          <Text style={{fontSize:20}}>{name}, {profileAge}</Text>
+          <Text style={{fontSize:20}}>{nickname}, {age}</Text>
           <Text style={{fontSize:15, color:'darkgrey'}}>{bio}</Text>
         </View>
       </Animated.View>

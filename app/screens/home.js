@@ -11,36 +11,58 @@ export default class App extends Component {
   state = {
     profileIndex: 0,  
     gender: '',
+    email: '',
+    age:'',
+    nickname:'',
+    interests:[],
+    photos:[],
+    profiles:[]  
   }
   nextCard = () => {
-    console.log(1)
     this.setState({profileIndex: this.state.profileIndex + 1})
   }
 
-  moveSetting = () => {
-    this.props.navigation.navigate('Profile')
-  }
-
-  moveMatches = () => {
-    this.props.navigation.navigate('Matches')
-  }
 
   selectionMove = (value) => {
     this.setState({ gender: value })
-    console.log(this.state.gender)
+  }
+
+  getUserInfo = () => {
+    const request = async () => {
+      let getProfiles = []
+      const response = await fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/")
+      const json = await response.json()
+      json.map((el) => { getProfiles.push(el)})
+      this.setState({profiles : getProfiles})
+    }
+    request()
+  }
+
+  
+
+  componentDidMount () {
+    this.getUserInfo()
   }
 
   render() {
-    const {profileIndex} = this.state
+    const { profileIndex, profiles } = this.state
+    const listOfInterests = ['Environment', "Music", "Business", "Fortune", "Personality", "Knowledge", "Exercise", "Appearance"]
     return (
       <View style={{flex: 1, flexDirection:"column", alignItems:'stretch'}}>
-        <View style={{flex: 1, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between', marginBottom:10}}>
-          <HomeSettingButton onPress={this.moveSetting}/>
+        <View style={{flex: 2, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between', marginBottom:10}}>
+          <HomeSettingButton onPress={ () => {this.props.navigation.navigate('Profile')}}/>
           <HomeButton />          
-          <HomeMatchesButton onPress={this.moveMatches}/>
+          <HomeMatchesButton onPress={ () => {this.props.navigation.navigate('Matches')}}/>
         </View>
-        <View>
-          <SelectScrollView />
+        <View style={{flex:2.5, backgroundColor:'#206DDF', flexDirection:"row"}}>
+            {listOfInterests.map((el, i) => {
+              return (
+                <SelectScrollView
+                  key={i}
+                  interest = {el}
+                />
+              )
+            })}
         </View> 
         <View style={{flex: 10}}>
             {profiles.slice(profileIndex, profileIndex + 20).reverse().map((profile) => {
@@ -49,79 +71,11 @@ export default class App extends Component {
                 key={profile.id}
                 profile={profile}
                 onSwipeOff={this.nextCard}
-
               />
-            )
-            })}
+            )})}
         </View>
       </View>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  selection :{
-    flex:1,
-    alignItems:'center',
-    width: '70%',
-  }, 
-})
-
-const profiles = [
-  {
-    id: '1',
-    name: '한혜경',
-    birthday: '8/17/1992',
-    bio: '개발자',
-    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/hanleader.png'
-  },
-  {
-    id: '2',
-    name: '김세준',
-    birthday: '8/17/1993',
-    bio: '개발자',
-    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/KimSejun.png'
-  },
-  {
-    id: '3',
-    name: '박동휘',
-    birthday: '8/17/1987',
-    bio: '개발자',
-    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/donghwipark.png'
-  },
-  {
-    id: '4',
-    name: '강도희',
-    birthday: '8/17/1995',
-    bio: '대학생',
-    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/1542021060031.jpg'
-  },
-  {
-    id: '5',
-    name: '박준홍',
-    birthday: '8/17/2000',
-    bio: '대학생',
-    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/Screen+Shot+2019-02-09+at+9.45.59+PM.png'
-  },
-  {
-    id: '6',
-    name: '김범규',
-    birthday: '8/17/2000',
-    bio: '대학생',
-    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/Image+from+iOS.jpg'
-  },
-  {
-    id: '7',
-    name: '박지혜',
-    birthday: '8/17/1993',
-    bio: '대학생',
-    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/IMG_3402.JPG'
-  },
-  {
-    id: '8',
-    name: '김선재',
-    birthday: '8/17/2000',
-    bio: '대학생',
-    profilePhoto: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/Image+from+iOS+(1).jpg'
-  },
-]

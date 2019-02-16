@@ -24,7 +24,7 @@ export default class BubbleSelection extends React.Component {
       this.animatedValue,
       {
         toValue: 1,
-        duration: 20000,
+        duration: 10000,
         easing: Easing.linear
       }
     ).start(() => this.animate())
@@ -78,8 +78,8 @@ export default class BubbleSelection extends React.Component {
               height: 100,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log(1))}>
-              <Text style={styles.buttonText}>1</Text>
+              onPress={()=>(console.log('Exercise'))}>
+              <Text style={styles.buttonText}>Exercise</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
         </View>           
@@ -92,12 +92,12 @@ export default class BubbleSelection extends React.Component {
               backgroundColor: 'orange',
               borderRadius: 100,
               position:'absolute',
-              width: 100,
-              height: 100,
+              width: 80,
+              height: 80,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log(2))}>
-              <Text style={styles.buttonText}>2</Text>
+              onPress={()=>(console.log('Music'))}>
+              <Text style={styles.buttonText}>Music</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
         </View>
@@ -111,12 +111,12 @@ export default class BubbleSelection extends React.Component {
               backgroundColor: '#f06595',
               borderRadius: 100,
               position:'absolute',
-              width: 100,
-              height: 100,
+              width: 120,
+              height: 120,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log(3))}>
-              <Text style={styles.buttonText}>3</Text>
+              onPress={()=>(console.log('Appearance'))}>
+              <Text style={styles.buttonText}>Appearance</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
         </View>
@@ -129,12 +129,12 @@ export default class BubbleSelection extends React.Component {
               backgroundColor: '#ff6b6b',
               borderRadius: 100,
               position:'absolute',
-              width: 100,
-              height: 100,
+              width: 120,
+              height: 120,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log(4))}>
-              <Text style={styles.buttonText}>4</Text>
+              onPress={()=>(console.log('Knowledge'))}>
+              <Text style={styles.buttonText}>Knowledge</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
         </View>
@@ -152,8 +152,8 @@ export default class BubbleSelection extends React.Component {
               height: 100,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log(5))}>
-              <Text style={styles.buttonText}>5</Text>
+              onPress={()=>(console.log('Fortune'))}>
+              <Text style={styles.buttonText}>Fortune</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
         </View>
@@ -167,12 +167,12 @@ export default class BubbleSelection extends React.Component {
             backgroundColor: '#339af0',
             position:'absolute',
             borderRadius: 100,
-            width: 100,
-            height: 100,
+            width: 120,
+            height: 120,
             }}>
           <TouchableWithoutFeedback 
-            onPress={()=>(console.log(6))}>
-            <Text style={styles.buttonText}>6</Text>
+            onPress={()=>(console.log('Environment'))}>
+            <Text style={styles.buttonText}>Environment</Text>
           </TouchableWithoutFeedback>        
         </Animated.View>
       </View>
@@ -185,12 +185,12 @@ export default class BubbleSelection extends React.Component {
               alignItems: 'center',
               borderRadius: 100,
               position:'absolute',
-              width: 100,
-              height: 100,
+              width: 110,
+              height: 110,
               backgroundColor: '#fcc419'}}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log(7))}>
-              <Text style={styles.buttonText}>7</Text>
+              onPress={()=>(console.log('Personality'))}>
+              <Text style={styles.buttonText}>Personality</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
         </View>
@@ -207,8 +207,8 @@ export default class BubbleSelection extends React.Component {
               margin:10,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log(8))}>
-              <Text style={styles.buttonText}>8</Text>
+              onPress={()=>(console.log('Business'))}>
+              <Text style={styles.buttonText}>Business</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
         </View>  
@@ -226,9 +226,9 @@ const styles = StyleSheet.create({
     margin:10
   },  
   buttonText: {
-      fontSize: 24,
+      fontSize: 20,
       color: 'white',
-      padding:20,
+      padding:3,
     }
 })
 
