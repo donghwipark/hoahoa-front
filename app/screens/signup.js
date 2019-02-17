@@ -7,18 +7,68 @@ import {
   TouchableHighlight,
   Text,
 } from 'react-native';
-import {MaterialCommunityIcons, FontAwesome, MaterialIcons, Entypo} from '@expo/vector-icons'
+import { MaterialCommunityIcons, Entypo } from '@expo/vector-icons'
 import { LinearGradient } from 'expo';
 
 export default class SignUp extends React.Component {
   state = {
     email: '',
     password: '',
+    checkingPassword: '',
     nickname: '',
     age:'',
     gender:'',
     photo:'',
   }
+
+  validation(values) {
+    const errors = {};
+    const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/;
+    console.log(emailPattern.test(values))
+
+    if (!emailPattern.test(values)) {
+      errors.email = 'Enter a valid email';
+      return alert(errors.email);
+    }
+
+    if (!emailPattern.test(values)) {
+      errors.email = 'Enter a valid email';
+      return alert(errors.email);
+    }
+
+    if(this.state.nickname.length === 0){
+      alert("Input nickname");
+      return false;
+    }
+
+    if(this.state.password !== this.state.checkingPassword ) {
+      return alert('Yout password input is incorrect')
+    }
+    
+    this.chkPwd(this.state.password) && this.props.navigation.navigate('SignUpAddInfo', this.state)
+  }
+ 
+  chkPwd (str) {
+    var pw = str;
+    var num = pw.search(/[0-9]/g);
+    var eng = pw.search(/[a-z]/ig);
+    var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+   
+    if(pw.length < 8 || pw.length > 20){
+     alert("Your password must be between 8 and 20 characters.");
+     return false;
+    }
+    if(pw.search(/₩s/) != -1){
+     alert("Input without blank");
+     return false;
+    } 
+    if(num < 0 || eng < 0 || spe < 0 ){
+     alert("Your password must contain at least one special character, number and letter"); 
+     return false;
+    }
+    return true
+  }
+
   handleEmail = (text) => {
     this.setState({ email: text })
   }
@@ -68,7 +118,7 @@ export default class SignUp extends React.Component {
             <Text style={styles.text}>Password</Text>
             <View style={styles.buttoncontainer}>
               <TextInput style = {styles.input}
-                placeholder='Password'
+                placeholder='At least 8 chracters'
                 secureTextEntry
                 onChangeText={(text) => this.setState({password: text})}
               />
@@ -81,7 +131,7 @@ export default class SignUp extends React.Component {
               <TextInput style = {styles.input}
                 placeholder='Checking password'
                 secureTextEntry
-                onChangeText={(text) => this.setState({password: text})}
+                onChangeText={(text) => this.setState({checkingPassword: text})}
               />
               <Entypo name="eye" size={20} color={'#adb5bd'}/>  
             </View>  
@@ -89,9 +139,9 @@ export default class SignUp extends React.Component {
           <View style={{margin:0}}> 
             <TouchableHighlight 
               style={styles.nextButton}
-              onPress={() => {
-                this.props.navigation.navigate('SignUpAddInfo', this.state)
-              }}>
+              onPress={
+                () => this.validation(this.state.email)}
+              >
               <View style={styles.nextButtoncontainer}>
                 <LinearGradient
                   colors={['#4dabf7', '#206DDF', '#1864ab']}

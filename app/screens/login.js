@@ -42,6 +42,18 @@ export default class Login extends React.Component {
     })
   }
 
+  validation(values) {
+    const errors = {};
+    const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/;
+    console.log(emailPattern.test(values))
+
+    if (!emailPattern.test(values)) {
+      errors.email = 'Enter a valid email';
+      return alert(errors.email);
+    }  
+    this.signIn()
+  }
+  
   render() {
     return (
       <View style={styles.container}>
@@ -63,7 +75,10 @@ export default class Login extends React.Component {
             <View style={styles.buttoncontainer}>  
               <TextInput style = {styles.input}
                 placeholder='email@'
-                onChangeText={(text) => this.setState({email: text})}
+                onChangeText={(text) => {
+                  
+                  this.setState({email: text})
+                }}
               />
               <MaterialCommunityIcons name="email" size={20} color={'#adb5bd'}/>
             </View>
@@ -81,7 +96,11 @@ export default class Login extends React.Component {
           <View/>
             <TouchableHighlight 
               style={styles.loginButton}
-              onPress={this.signIn}>        
+              onPress={() => {
+                this.validation(this.state.email)
+                //this.signIn
+              }
+              }>        
               <View style={styles.loginButtoncontainer}>
                 <LinearGradient
                   colors={['#4dabf7', '#206DDF', '#1864ab']}
