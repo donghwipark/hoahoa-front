@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-import {View} from 'react-native'
+import {View, ScrollView} from 'react-native'
 import Card from '../components/card'
 import HomeMatchesButton from '../components/homeMatchesButton';
 import HomeSettingButton from '../components/homeSettingButton';
@@ -31,6 +31,7 @@ export default class App extends Component {
       let getProfiles = []
       const response = await fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/")
       const json = await response.json()
+      console.log(json)
       json.map((el) => { getProfiles.push(el)})
       this.setState({profiles : getProfiles})
     }
@@ -46,6 +47,7 @@ export default class App extends Component {
   render() {
     const { profileIndex, profiles } = this.state
     const listOfInterests = ['Environment', "Music", "Business", "Fortune", "Personality", "Knowledge", "Exercise", "Appearance"]
+    const interestColors = ['greenyellow', 'orange', '#f06595', '#ff6b6b', '#cc5de8', '#339af0', '#fcc419', '#20c997']
     return (
       <View style={{flex: 1, flexDirection:"column", alignItems:'stretch'}}>
         <View style={{flex: 2, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between', marginBottom:10}}>
@@ -53,16 +55,19 @@ export default class App extends Component {
           <HomeButton />          
           <HomeMatchesButton onPress={ () => {this.props.navigation.navigate('Matches', /*{need to push user id to get the information about login user to get the Mathches info}*/)}}/>
         </View>
-        <View style={{flex:2.5, backgroundColor:'#206DDF', flexDirection:"row"}}>
+        <View style={{flex:2, backgroundColor:'white', flexDirection:"row", padding:6}}>
+          <ScrollView horizontal={true}>
             {listOfInterests.map((el, i) => {
               return (
                 <SelectScrollView
                   key={i}
                   interest = {el}
+                  color = {interestColors[i]}
                 />
               )
             })}
-        </View> 
+          </ScrollView> 
+        </View>
         <View style={{flex: 10}}>
             {profiles.slice(profileIndex, profileIndex + 20).reverse().map((profile) => {
             return (

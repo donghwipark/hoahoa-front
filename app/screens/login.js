@@ -11,6 +11,7 @@ import FacebookButton from '../components/facebookButton'
 import KakaotalkButton from '../components/kakaotalkButton'
 import { LinearGradient } from 'expo';
 import {MaterialCommunityIcons, Entypo} from '@expo/vector-icons'
+import { StackActions } from 'react-navigation';
 
 export default class Login extends React.Component {
   state = {
@@ -33,10 +34,15 @@ export default class Login extends React.Component {
         if (response.error) {
           alert(response.error)
         } else {
-          console.log(response)
-          this.props.navigation.navigate('Home')
+          //this.props.navigation.navigate("Home")
+          this.props.navigation.dispatch(
+              StackActions.reset({
+              index: 0,
+              actions: [StackActions.replace({routeName:'Home'})]
+            }))
+          }
         }
-      })
+      )
       .catch((error) => {
         console.error(error)  
     })
@@ -45,8 +51,6 @@ export default class Login extends React.Component {
   validation(values) {
     const errors = {};
     const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/;
-    console.log(emailPattern.test(values))
-
     if (!emailPattern.test(values)) {
       errors.email = 'Enter a valid email';
       return alert(errors.email);
@@ -98,7 +102,6 @@ export default class Login extends React.Component {
               style={styles.loginButton}
               onPress={() => {
                 this.validation(this.state.email)
-                //this.signIn
               }
               }>        
               <View style={styles.loginButtoncontainer}>

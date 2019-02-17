@@ -20,12 +20,12 @@ import PrivateDetails from './screens/privateDetails'
 const RouteConfigs = createStackNavigator(
   {
     Start: {screen:Start},
-    Login: {screen:Login},
-    Home: {screen:Home},
-    Matches: {screen:Matches},
     SignUp: {screen:SignUp},
     SignUpAddInfo: {screen:SignUpAddInfo},
     SignUpPhoto: {screen:SignUpPhoto},
+    Login: {screen:Login},
+    Home: {screen:Home},
+    Matches: {screen:Matches},
     Profile: {screen:Profile},
     Setting: {screen:Setting},
     InterestsSetting: {screen:InterestsSetting},
