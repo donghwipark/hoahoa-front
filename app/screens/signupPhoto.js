@@ -3,8 +3,6 @@ import {
   View,
   Text,
   Image,
-  TextInput,
-  ScrollView,
   StyleSheet,
   TouchableOpacity,
   TouchableHighlight
@@ -14,13 +12,8 @@ import { ImagePicker, Permissions, LinearGradient } from 'expo';
 
 export default class SignUpPhoto extends React.Component {
   signUp = () => {
-    const a = {
-      "nickname": "test3",
-      "email": "test3@naver.com",
-      "password": "514411",
-      "age": "26",
-      "gender": "man"
-   }
+    const a = this.props.navigation.state.params.params
+    console.log(a)
     return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/signup",{
       method:'POST',
       headers: {
@@ -30,8 +23,10 @@ export default class SignUpPhoto extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        alert('Sign up success')
-        this.props.navigation.navigate('Home')
+        if(response) {
+          alert('Sign up success, Please Sign in')
+          this.props.navigation.navigate('Login')
+        }
       })
       .catch((error) => {
         console.error(error)  
@@ -59,8 +54,7 @@ export default class SignUpPhoto extends React.Component {
   };
 
   render () {
-    console.log(this.props.navigation.state.params.params.password)
-
+    console.log(this.props)
     return (
       <View style={styles.container}>
         <LinearGradient
@@ -75,46 +69,34 @@ export default class SignUpPhoto extends React.Component {
           source={require('../images/homeIcon.png')}
         />
         <Text style={{fontSize:30, color:'#fff', marginBottom:30}} >Sign Up</Text>
-        <View style={styles.signin}>
-          
-        <View style={styles.containerPhoto}>
-        <Text style={styles.text}>Upload your photo</Text>
-        <Image style={styles.image} source={{ uri: this.state.image }} />
-        <View style={styles.row}>
-          <Button onPress={this.selectPicture}>Gallery</Button>
-          <Button onPress={this.takePicture}>Camera</Button>
-        </View>
-        <View style={{margin:0}}> 
-          <TouchableHighlight 
-            style={styles.nextButton}
-            onPress={this.signUp}>
-            <View style={styles.nextButtoncontainer}>
-              <LinearGradient
-                  colors={['#4dabf7', '#206DDF', '#1864ab']}
-                  style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
-                  justifyContent:'center', width:250, 
-                }}
-                  start={{ x: 0, y: 1 }}
-                  end={{ x: 1, y: 1 }}
-              >
-                <Text style={styles.buttonText}>Sign Up</Text>
-              </LinearGradient>  
+        <View style={styles.signin}>          
+          <View style={styles.containerPhoto}>
+            <Text style={styles.text}>Upload your photo</Text>
+            <Image style={styles.image} source={{ uri: this.state.image }} />
+            <View style={styles.row}>
+              <Button onPress={this.selectPicture}>Gallery</Button>
+              <Button onPress={this.takePicture}>Camera</Button>
             </View>
-          </TouchableHighlight>
-        </View>
-      </View>
-
-        </View>
-        <View style={{flex:1, flexDirection:'row'}}>
-          <Text style={{fontSize:20, color:'grey'}}>Already have an account?</Text>
-          <TouchableHighlight onPress={
-            () => {this.props.navigation.navigate('Login')}
-          }>        
-            <View>
-              <Text style={{fontWeight:'bold', fontSize:20, color:'#495057'}}> Sign In</Text>
+            <View style={{margin:0}}> 
+              <TouchableHighlight 
+                style={styles.nextButton}
+                onPress={this.signUp}>
+                <View style={styles.nextButtoncontainer}>
+                  <LinearGradient
+                      colors={['#4dabf7', '#206DDF', '#1864ab']}
+                      style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+                      justifyContent:'center', width:250, 
+                    }}
+                      start={{ x: 0, y: 1 }}
+                      end={{ x: 1, y: 1 }}
+                  >
+                    <Text style={styles.buttonText}>Sign Up</Text>
+                  </LinearGradient>  
+                </View>
+              </TouchableHighlight>
             </View>
-          </TouchableHighlight>       
-        </View>
+          </View>
+        </View> 
       </View>
     )  
   }

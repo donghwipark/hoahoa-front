@@ -46,6 +46,28 @@ export default class PrivateDetailChange extends React.Component {
   signUp = () => {
     this.props.navigation.navigate('Home')
   }
+  changePassword () {
+    console.log('change password here')
+//   const request = async () => {
+//     let getMatches = []
+//     const response = await fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/delete/${id}`)
+//     const json = await response.json()
+//     json.map((el) => { getMatches.push(el) })
+//     this.setState({matches : getMatches})
+//   }
+//   request()
+  }
+  logout () {
+    console.log('logout func here')
+//   const request = async () => {
+//     let getMatches = []
+//     const response = await fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/logout`)
+//     const json = await response.json()
+//     json.map((el) => { getMatches.push(el) })
+//     this.setState({matches : getMatches})
+//   }
+//   request()
+  }
   deleteID = () => {
 //   const request = async () => {
 //     let getMatches = []
@@ -98,7 +120,7 @@ export default class PrivateDetailChange extends React.Component {
         <View style={{marginBotom:20}}> 
           <TouchableHighlight 
             style={styles.nextButton}
-            onPress={this.props.onPress}>
+            onPress={this.changePassword}>
             <View style={styles.nextButtoncontainer}>
               <LinearGradient
                   colors={['#4dabf7', '#206DDF', '#1864ab']}
@@ -113,7 +135,23 @@ export default class PrivateDetailChange extends React.Component {
             </View>
           </TouchableHighlight>
         </View>
-        <View style={{marginTop:30}}> 
+        <View style={{marginBotom:20}}> 
+          <TouchableHighlight 
+            style={styles.nextButton}
+            onPress={this.logout}>
+            <View style={styles.nextButtoncontainer}>
+              <LinearGradient
+                colors={['#4dabf7', '#206DDF', '#1864ab']}
+                style={{ alignItems: 'center', borderRadius: 50, height:50, flexDirection:'row', justifyContent:'center', width:250 }}
+                start={{ x: 0, y: 1 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Text style={styles.buttonText}>Logout</Text>
+              </LinearGradient>  
+            </View>
+          </TouchableHighlight>
+        </View>
+        <View > 
           <TouchableHighlight 
             style={styles.nextButton}
             onPress={this.showAlert}>
@@ -128,8 +166,7 @@ export default class PrivateDetailChange extends React.Component {
               >
                 <Text style={styles.buttonText}>Delete ID</Text>
               </LinearGradient>  
-            </View>
-          
+            </View>          
           </TouchableHighlight>
             <AwesomeAlert
               show={showAlert}
@@ -180,7 +217,7 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',  
     borderRadius: 50, 
-    marginBottom: 5, 
+    marginBottom: 10, 
   },
   nextButtoncontainer: {
     flex:1,
@@ -198,7 +235,7 @@ const styles = StyleSheet.create({
   } ,
   changePassword: {
     backgroundColor: '#fff',
-    padding:45,
+    padding:35,
     borderRadius: 10, 
     borderWidth: 0.5,
     borderColor: 'lightgrey',

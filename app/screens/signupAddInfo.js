@@ -86,16 +86,6 @@ export default class SignUpAddInfo extends React.Component {
             </TouchableHighlight>
           </View>
         </View>
-        <View style={{flex:1, flexDirection:'row'}}>
-          <Text style={{fontSize:20, color:'grey'}}>Already have an account?</Text>
-          <TouchableHighlight onPress={() => {
-            this.props.navigation.navigate('Login')
-          }}>        
-            <View>
-              <Text style={{fontWeight:'bold', fontSize:20, color:'#495057'}}> Sign In</Text>
-            </View>
-          </TouchableHighlight>       
-        </View>
       </View>
     )  
   }

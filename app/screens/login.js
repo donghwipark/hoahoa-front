@@ -97,7 +97,8 @@ export default class Login extends React.Component {
               />
               <Entypo name="eye" size={20} color={'#adb5bd'}/>  
             </View>  
-          <View/>
+          </View>
+          <View>
             <TouchableHighlight 
               style={styles.loginButton}
               onPress={() => {
@@ -115,8 +116,7 @@ export default class Login extends React.Component {
                 </LinearGradient>  
               </View>
             </TouchableHighlight>
-          </View>
-
+          </View>  
         </View>
         <View style={styles.facebookButton} >
           <FacebookButton onPress={this.login} />
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
   },
   login: {
     backgroundColor: '#fff',
-    padding:45,
+    padding:35,
     borderRadius: 10, 
     borderWidth: 0.5,
     borderColor: 'lightgrey',
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   },
   input:{
     height: 40,
-    width: 280,
+    width: 250,
   },
   loginButton: {
     height:50,
@@ -192,8 +192,6 @@ const styles = StyleSheet.create({
     marginBottom: 5, 
   },
   loginButtoncontainer: {
-    flex:1,
-    flexDirection:'row',
     alignItems:'center',
     justifyContent:'center'  
   },
