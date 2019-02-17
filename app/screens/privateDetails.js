@@ -9,6 +9,10 @@ import PrivateDetailChange from '../components/privateDetailChange'
 import { LinearGradient } from 'expo';
 
 export default class PrivateDetails extends React.Component {
+  onDeleteNavigation () {
+    () => {this.props.navigation.navigate('Start')}
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -23,9 +27,9 @@ export default class PrivateDetails extends React.Component {
           style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
           source={require('../images/homeIcon.png')}
         />
-        <Text style={{fontSize:30, color:'#fff', marginBottom:30}}>Change Password</Text>
+        <Text style={{fontSize:30, color:'#fff', marginBottom:30}}>Private Setting</Text>
         <View>        
-          <PrivateDetailChange />
+          <PrivateDetailChange onDelete={ () => {this.props.navigation.navigate('Start')} } />
         </View>
       </View>
     );

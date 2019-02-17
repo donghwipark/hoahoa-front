@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react'
-import {View, StyleSheet, Text} from 'react-native'
+import {View} from 'react-native'
 import Card from '../components/card'
 import HomeMatchesButton from '../components/homeMatchesButton';
 import HomeSettingButton from '../components/homeSettingButton';
@@ -21,7 +21,6 @@ export default class App extends Component {
   nextCard = () => {
     this.setState({profileIndex: this.state.profileIndex + 1})
   }
-
 
   selectionMove = (value) => {
     this.setState({ gender: value })
@@ -50,9 +49,9 @@ export default class App extends Component {
     return (
       <View style={{flex: 1, flexDirection:"column", alignItems:'stretch'}}>
         <View style={{flex: 2, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between', marginBottom:10}}>
-          <HomeSettingButton onPress={ () => {this.props.navigation.navigate('Profile')}}/>
+          <HomeSettingButton onPress={ () => {this.props.navigation.navigate('Profile', /*{need to push information about login user to get the info}*/)}}/>
           <HomeButton />          
-          <HomeMatchesButton onPress={ () => {this.props.navigation.navigate('Matches')}}/>
+          <HomeMatchesButton onPress={ () => {this.props.navigation.navigate('Matches', /*{need to push user id to get the information about login user to get the Mathches info}*/)}}/>
         </View>
         <View style={{flex:2.5, backgroundColor:'#206DDF', flexDirection:"row"}}>
             {listOfInterests.map((el, i) => {
@@ -78,4 +77,3 @@ export default class App extends Component {
     )
   }
 }
-

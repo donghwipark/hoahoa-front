@@ -18,7 +18,6 @@ export default class Login extends React.Component {
     password: ''
   }
   signIn = () => {
-    console.log(this.state.email)
     return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/login",{
       method:'POST',
       headers: {

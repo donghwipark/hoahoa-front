@@ -6,17 +6,34 @@ import {
   ScrollView,
   StyleSheet,
   Button,
+  TouchableOpacity,
   TouchableHighlight
 } from 'react-native';
 import {Entypo} from '@expo/vector-icons'
 import { LinearGradient } from 'expo'
+import AwesomeAlert from "react-native-awesome-alerts"
 
 export default class PrivateDetailChange extends React.Component {
   state = {
     email: '',
     password: '',
     nickname: '',
+    showAlert: false
   }
+
+  showAlert = () => {
+    this.setState({
+      showAlert: true
+    });
+  };
+
+  hideAlert = () => {
+    this.setState({
+      showAlert: false
+    });
+  };
+
+
   handleEmail = (text) => {
     this.setState({ email: text })
   }
@@ -29,10 +46,23 @@ export default class PrivateDetailChange extends React.Component {
   signUp = () => {
     this.props.navigation.navigate('Home')
   }
+  deleteID = () => {
+//   const request = async () => {
+//     let getMatches = []
+//     const response = await fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/delete/${id}`)
+//     const json = await response.json()
+//     json.map((el) => { getMatches.push(el) })
+//     this.setState({matches : getMatches})
+//   }
+//   request()
+  }
 
   render () {
+    const {showAlert} = this.state;
+    const {onDelete } = this.props
+
     return (
-      <View style={styles.changePassword}>
+      <View style={styles.changePassword}>       
         <View>
           <Text style={styles.text}>Current Password</Text>
           <View style={styles.buttoncontainer}>
@@ -65,7 +95,7 @@ export default class PrivateDetailChange extends React.Component {
             <Entypo name="eye" size={20} color={'#adb5bd'}/>  
           </View>  
         </View >
-        <View style={{margin:0}}> 
+        <View style={{marginBotom:20}}> 
           <TouchableHighlight 
             style={styles.nextButton}
             onPress={this.props.onPress}>
@@ -82,6 +112,47 @@ export default class PrivateDetailChange extends React.Component {
               </LinearGradient>  
             </View>
           </TouchableHighlight>
+        </View>
+        <View style={{marginTop:30}}> 
+          <TouchableHighlight 
+            style={styles.nextButton}
+            onPress={this.showAlert}>
+            <View style={styles.nextButtoncontainer}>
+              <LinearGradient
+                  colors={['#4dabf7', '#206DDF', '#1864ab']}
+                  style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
+                  justifyContent:'center', width:250, 
+                }}
+                  start={{ x: 0, y: 1 }}
+                  end={{ x: 1, y: 1 }}
+              >
+                <Text style={styles.buttonText}>Delete ID</Text>
+              </LinearGradient>  
+            </View>
+          
+          </TouchableHighlight>
+            <AwesomeAlert
+              show={showAlert}
+              showProgress={false}
+              title="Alert"
+              message="Are you sure to delete your ID?"
+              closeOnTouchOutside={true}
+              closeOnHardwareBackPress={false}
+              showCancelButton={true}
+              showConfirmButton={true}
+              cancelText="No, cancel"
+              confirmText="Yes, delete it"
+              confirmButtonColor="#206DDF"
+              onCancelPressed={() => {
+                this.hideAlert();
+                console.log('canceled it')
+              }}
+              onConfirmPressed={() => {
+                this.hideAlert();
+                this.deleteID()
+                onDelete()
+              }}
+            />
         </View>
       </View>  
     )  

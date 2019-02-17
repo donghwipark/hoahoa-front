@@ -3,26 +3,14 @@ import {
    StyleSheet,
    Text,
    View,
-   Switch,
-   Slider,
-   Ionicons,
-   FontAwesome,
-   TouchableHighlight
 } from 'react-native';
 import CircleImage from '../components/circleImage'
-import { Button, Icon } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { LinearGradient } from 'expo';
 
 export default class Profile extends React.Component {
-  goBack = () => {}
-  hoahoaSettingMove = () => {
-    this.props.navigation.navigate('Setting')
-  }
-  profileDetailsMove = () => {
-    this.props.navigation.navigate('PrivateDetails')
-  }
-  interestingSetting = () => {
-    this.props.navigation.navigate('InterestsSetting')
+  componentDidMount () {
+    // need to get the functions to get user information before rending from the props
   }
   render() {
     return (
@@ -46,7 +34,9 @@ export default class Profile extends React.Component {
         <View style={styles.bottomContainer}>
           <View style={{flex:1, flexDirection:'row'}}>
             <Button
-              onPress={this.hoahoaSettingMove}
+              onPress={ 
+                () => { this.props.navigation.navigate('Setting') }
+              }
               title="Hoa?Hoa! Setting"
               icon={{
                 name: 'user',
@@ -70,7 +60,9 @@ export default class Profile extends React.Component {
           </View>
           <View style={{flex:1, flexDirection:'row'}}>
             <Button
-              onPress={this.profileDetailsMove}
+              onPress={ 
+                () => { this.props.navigation.navigate('PrivateDetails') }
+              }
               title="Private Details"
               icon={{
                 name: 'pencil',
@@ -94,7 +86,9 @@ export default class Profile extends React.Component {
           </View>
           <View style={{flex:1, flexDirection:'row'}}>
             <Button
-              onPress={this.interestingSetting}
+              onPress={
+                () => { this.props.navigation.navigate('InterestsSetting') }
+              }
               title="Interests Setting"
               icon={{
                 name: 'heart',
