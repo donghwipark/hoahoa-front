@@ -35,10 +35,11 @@ export default class Login extends React.Component {
           alert(response.error)
         } else {
           //this.props.navigation.navigate("Home")
+          console.log('response from server', response)
           this.props.navigation.dispatch(
               StackActions.reset({
               index: 0,
-              actions: [StackActions.replace({routeName:'Home'})]
+              actions: [StackActions.replace({routeName:'Home', params:this.state.email})]
             }))
           }
         }

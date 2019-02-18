@@ -9,11 +9,8 @@ import SelectScrollView from '../components/interestScrollView'
 
 export default class App extends Component {
   state = {
-    profileIndex: 0,  
-    gender: '',
-    email: '',
-    age:'',
-    nickname:'',
+    profileIndex: 0,
+    userInfo: null,     
     interests:[],
     photos:[],
     profiles:[]  
@@ -31,8 +28,16 @@ export default class App extends Component {
       let getProfiles = []
       const response = await fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/")
       const json = await response.json()
-      console.log(json)
-      json.map((el) => { getProfiles.push(el)})
+      // need to get rid of my id
+      
+      json.map((el) => {
+        if(el.email !== this.props.navigation.state.params){
+          getProfiles.push(el)
+          
+        } else {
+          this.setState({ userInfo : el})
+        }
+      })
       this.setState({profiles : getProfiles})
     }
     request()
@@ -51,7 +56,7 @@ export default class App extends Component {
     return (
       <View style={{flex: 1, flexDirection:"column", alignItems:'stretch'}}>
         <View style={{flex: 2, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between', marginBottom:10}}>
-          <HomeSettingButton onPress={ () => {this.props.navigation.navigate('Profile', /*{need to push information about login user to get the info}*/)}}/>
+          <HomeSettingButton onPress={ () => {this.props.navigation.navigate('Profile', { userInfo : this.state.userInfo})}}/>
           <HomeButton />          
           <HomeMatchesButton onPress={ () => {this.props.navigation.navigate('Matches', /*{need to push user id to get the information about login user to get the Mathches info}*/)}}/>
         </View>

@@ -24,8 +24,6 @@ export default class SignUp extends React.Component {
   validation(values) {
     const errors = {};
     const emailPattern = /(.+)@(.+){2,}\.(.+){2,}/;
-    console.log(emailPattern.test(values))
-
     if (!emailPattern.test(values)) {
       errors.email = 'Enter a valid email';
       return alert(errors.email);
