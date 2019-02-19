@@ -19,7 +19,7 @@ export default class BubbleSelection extends React.Component {
   }
 
   checkInterestsLength (interests) {
-    if( interests.length > 3 ) {
+    if( interests.length > 2 ) {
       alert('You can only choose three interests')
       return false
     } else {
@@ -91,10 +91,7 @@ export default class BubbleSelection extends React.Component {
             <TouchableWithoutFeedback 
               onPress={
                 ()=>{
-                  if(this.checkInterestsLength(interests)){
-                    interests.push('Exercise')
-                  }
-                  
+                  this.checkInterestsLength(interests) && interests.push('Exercise')
                   console.log(interests)
             }}>
               <Text style={styles.buttonText}>Exercise</Text>
@@ -114,7 +111,11 @@ export default class BubbleSelection extends React.Component {
               height: 80,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log('Music'))}>
+              onPress={
+                ()=>{
+                  this.checkInterestsLength(interests) && interests.push('Music')
+                  console.log(interests)}
+              }>
               <Text style={styles.buttonText}>Music</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
@@ -133,7 +134,11 @@ export default class BubbleSelection extends React.Component {
               height: 120,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log('Appearance'))}>
+              onPress={
+                ()=>{
+                  this.checkInterestsLength(interests) && interests.push('Appearance')
+                  console.log(interests)}
+              }>
               <Text style={styles.buttonText}>Appearance</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
@@ -151,7 +156,11 @@ export default class BubbleSelection extends React.Component {
               height: 120,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log('Knowledge'))}>
+              onPress={
+                ()=>{
+                  this.checkInterestsLength(interests) && interests.push('Knowledge')
+                  console.log(interests)}
+              }>
               <Text style={styles.buttonText}>Knowledge</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
@@ -170,7 +179,11 @@ export default class BubbleSelection extends React.Component {
               height: 100,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log('Fortune'))}>
+              onPress={
+                ()=>{
+                  this.checkInterestsLength(interests) && interests.push('Fortune')
+                  console.log(interests)}
+              }>
               <Text style={styles.buttonText}>Fortune</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
@@ -189,8 +202,12 @@ export default class BubbleSelection extends React.Component {
             height: 120,
             }}>
           <TouchableWithoutFeedback 
-            onPress={()=>(console.log('Environment'))}>
-            <Text style={styles.buttonText}>Environment</Text>
+              onPress={
+                ()=>{
+                  this.checkInterestsLength(interests) && interests.push('Environment')
+                  console.log(interests)}
+              }>
+              <Text style={styles.buttonText}>Environment</Text>
           </TouchableWithoutFeedback>        
         </Animated.View>
       </View>
@@ -207,7 +224,11 @@ export default class BubbleSelection extends React.Component {
               height: 110,
               backgroundColor: '#fcc419'}}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log('Personality'))}>
+              onPress={
+                ()=>{
+                  this.checkInterestsLength(interests) && interests.push('Personality')
+                  console.log(interests)}
+              }>
               <Text style={styles.buttonText}>Personality</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
@@ -225,7 +246,11 @@ export default class BubbleSelection extends React.Component {
               margin:10,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(interests)}>
+              onPress={
+                ()=>{
+                  this.checkInterestsLength(interests) && interests.push('Business')
+                  console.log(interests)}
+              }>
               <Text style={styles.buttonText}>Business</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>

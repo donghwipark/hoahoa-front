@@ -55,7 +55,7 @@ export default class App extends Component {
     }
     request()
   }
-  
+
   componentDidMount () {
     this.getUserInfo()
   }
@@ -94,7 +94,6 @@ export default class App extends Component {
               <Text style={styles.text}>LIKE</Text>
               <FontAwesome name="arrow-right" size={20} color={'#e64980'}/>
             </View>
-            
           </View>                 
         </View>
         <View style={{flex: 11}}>
