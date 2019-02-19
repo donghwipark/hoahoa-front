@@ -9,7 +9,32 @@ import BubbleSelection from '../components/bubbleSelection'
 import { LinearGradient } from 'expo';
 
 export default class InterestsSetting extends React.Component {
+  state = {
+    interests:[]
+  }
+  
+  sendUserInterest () {
+    return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/{id}/interest",{
+      method:'POST',
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(a)  
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if(response) {
+          alert('Sign up success, Please Sign in')
+          this.props.navigation.navigate('Login')
+        }
+      })
+      .catch((error) => {
+        console.error(error)  
+    })
+  }
+
   render() {
+    const email = this.props.navigation.state.params
     return (
       <View style={styles.container}>
         <View style={styles.upContainer}>
@@ -24,7 +49,7 @@ export default class InterestsSetting extends React.Component {
           <Text style={styles.underText}>find your interest keywords</Text>
         </View>       
         <View style={styles.bubble}>
-          <BubbleSelection />
+          <BubbleSelection interests={this.state.interests} email={email} />
         </View>
       </View>
     );

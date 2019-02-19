@@ -31,6 +31,7 @@ export default class Login extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
+        console.log(response)
         if (response.error) {
           alert(response.error)
         } else {
@@ -60,7 +61,6 @@ export default class Login extends React.Component {
   }
   
   render() {
-    console.log(this.props)
     return (
       <View style={styles.container}>
         <LinearGradient

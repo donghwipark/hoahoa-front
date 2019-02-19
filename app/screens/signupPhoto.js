@@ -13,7 +13,7 @@ import { ImagePicker, Permissions, LinearGradient } from 'expo';
 
 export default class SignUpPhoto extends React.Component {
   state = {
-    photo:null
+    photo:'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/donghwipark.png'
   }
 
   handleUploadPhoto = (email) => {
@@ -35,7 +35,7 @@ export default class SignUpPhoto extends React.Component {
   };
 
   signUp = (email) => {
-    handleUploadPhoto(email)
+    this.handleUploadPhoto(email)
     const a = this.props.navigation.state.params.params
     return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/signup",{
       method:'POST',
@@ -55,10 +55,7 @@ export default class SignUpPhoto extends React.Component {
         console.error(error)  
     })
   }
-  state = {
-    photo: 'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/donghwipark.png', 
-  }
-  
+
   selectPicture = async () => {
     await Permissions.askAsync(Permissions.CAMERA_ROLL);
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({

@@ -18,6 +18,15 @@ export default class BubbleSelection extends React.Component {
     this.animate()
   }
 
+  checkInterestsLength (interests) {
+    if( interests.length > 3 ) {
+      alert('You can only choose three interests')
+      return false
+    } else {
+      return true
+    }
+  }
+
   animate () {
     this.animatedValue.setValue(0)
     Animated.timing(
@@ -31,6 +40,8 @@ export default class BubbleSelection extends React.Component {
   }
 
   render() {
+    console.log(this.props)
+    const { interests } = this.props 
     const movingMarginOne = this.animatedValue.interpolate({
       inputRange: [0, 0.5, 1],
       outputRange: [-200, -130, -200]
@@ -78,7 +89,14 @@ export default class BubbleSelection extends React.Component {
               height: 100,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log('Exercise'))}>
+              onPress={
+                ()=>{
+                  if(this.checkInterestsLength(interests)){
+                    interests.push('Exercise')
+                  }
+                  
+                  console.log(interests)
+            }}>
               <Text style={styles.buttonText}>Exercise</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>
@@ -207,7 +225,7 @@ export default class BubbleSelection extends React.Component {
               margin:10,
               }}>
             <TouchableWithoutFeedback 
-              onPress={()=>(console.log('Business'))}>
+              onPress={()=>(interests)}>
               <Text style={styles.buttonText}>Business</Text>
             </TouchableWithoutFeedback>        
           </Animated.View>

@@ -44,11 +44,9 @@ export default class App extends Component {
       const response = await fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/")
       const json = await response.json()
       // need to get rid of my id
-      
-      json.map((el) => {
+        json.map((el) => {
         if(el.email !== this.props.navigation.state.params){
           getProfiles.push(el)
-          
         } else {
           this.setState({ userInfo : el})
         }
@@ -57,9 +55,7 @@ export default class App extends Component {
     }
     request()
   }
-
   
-
   componentDidMount () {
     this.getUserInfo()
   }
@@ -88,7 +84,7 @@ export default class App extends Component {
             })}
           </ScrollView> 
         </View>
-        <View style={{flex:0.7}}>        
+        <View style={{flex:0.5}}>        
           <View style={{flexDirection:"row", alignItems:"center",justifyContent:"space-between"}}>
             <View style={{flexDirection:"row", marginLeft:10}}>
               <FontAwesome name="arrow-left" size={20} color={'#4dabf7'}/>
