@@ -10,10 +10,33 @@ import {
 import { ImagePicker, Permissions, LinearGradient } from 'expo';
 // will seperately add information about birthday, gender, location  
 
+
 export default class SignUpPhoto extends React.Component {
-  signUp = () => {
+  state = {
+    photo:null
+  }
+
+  handleUploadPhoto = (email) => {
+    console.log()
+    fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/${email}/picture`, {
+      method: "POST",
+      body: createFormData(this.state.photo, { userId: email })
+    })
+      .then(response => response.json())
+      .then(response => {
+        console.log("upload succes", response);
+        alert("Upload success!");
+        this.props.navigation.setParams({ photo: response })
+      })
+      .catch(error => {
+        console.log("upload error", error);
+        alert("Upload failed!");
+      });
+  };
+
+  signUp = (email) => {
+    handleUploadPhoto(email)
     const a = this.props.navigation.state.params.params
-    console.log(a)
     return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/signup",{
       method:'POST',
       headers: {
@@ -54,7 +77,7 @@ export default class SignUpPhoto extends React.Component {
   };
 
   render () {
-    console.log(this.props)
+    const { email } = this.props.navigation.state.params.params
     return (
       <View style={styles.container}>
         <LinearGradient
@@ -80,7 +103,7 @@ export default class SignUpPhoto extends React.Component {
             <View style={{margin:0}}> 
               <TouchableHighlight 
                 style={styles.nextButton}
-                onPress={this.signUp}>
+                onPress={this.signUp(email)}>
                 <View style={styles.nextButtoncontainer}>
                   <LinearGradient
                       colors={['#4dabf7', '#206DDF', '#1864ab']}

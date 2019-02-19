@@ -16,6 +16,7 @@ export default class SignUp extends React.Component {
     password: '',
     checkingPassword: '',
     nickname: '',
+    aboutme:'',
     age:'',
     gender:'',
     photo:'',
@@ -138,7 +139,8 @@ export default class SignUp extends React.Component {
             <TouchableHighlight 
               style={styles.nextButton}
               onPress={
-                () => this.validation(this.state.email)}
+                () => (this.props.navigation.navigate('SignUpAddInfo', this.state))}
+                //() => this.validation(this.state.email)}
               >
               <View style={styles.nextButtoncontainer}>
                 <LinearGradient

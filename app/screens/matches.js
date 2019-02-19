@@ -13,16 +13,17 @@ export default class Matches extends React.Component {
   }
   componentDidMount () {
     // need to put fetch function here to get the matches information
-    // getUserInfo = () => {
-    //   const request = async () => {
-    //     let getMatches = []
-    //     const response = await fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/match/${id}`)
-    //     const json = await response.json()
-    //     json.map((el) => { getMatches.push(el) })
-    //     this.setState({matches : getMatches})
-    //   }
-    //   request()
-    // }
+    getUserInfo = () => {
+      const request = async () => {
+        let getMatches = []
+        const response = await fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/match/${id}`)
+        const json = await response.json()
+        json.map((el) => { getMatches.push(el) })
+        this.setState({matches : getMatches})
+      }
+      request()
+      console.log(this.state)
+    }
   }
 
   render() {

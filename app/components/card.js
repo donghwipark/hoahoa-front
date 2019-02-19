@@ -9,8 +9,6 @@ import {
   Dimensions,
 } from 'react-native'
 
-import moment from 'moment'
-
 const {width, height} = Dimensions.get('window')
 
 export default class Card extends Component {

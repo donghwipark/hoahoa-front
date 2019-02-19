@@ -1,11 +1,18 @@
 
 import React, {Component} from 'react'
-import {View, ScrollView} from 'react-native'
+import {
+  View, 
+  ScrollView, 
+  Image, 
+  Text,
+  StyleSheet
+} from 'react-native'
 import Card from '../components/card'
 import HomeMatchesButton from '../components/homeMatchesButton';
 import HomeSettingButton from '../components/homeSettingButton';
 import HomeButton from '../components/homeButton';
 import SelectScrollView from '../components/interestScrollView'
+import { FontAwesome } from '@expo/vector-icons'
 
 export default class App extends Component {
   state = {
@@ -15,8 +22,16 @@ export default class App extends Component {
     photos:[],
     profiles:[]  
   }
-  nextCard = () => {
+  nextCard = (swipedRight, filterMessage) => {
+    console.log('On home',filterMessage)
     this.setState({profileIndex: this.state.profileIndex + 1})
+    if (swipedRight) {
+      // here put functino when scroll to the right
+      console.log('liked')
+    } else {
+      console.log('skip')
+      // here put functino when scroll to the left
+    }
   }
 
   selectionMove = (value) => {
@@ -73,7 +88,20 @@ export default class App extends Component {
             })}
           </ScrollView> 
         </View>
-        <View style={{flex: 10}}>
+        <View style={{flex:0.7}}>        
+          <View style={{flexDirection:"row", alignItems:"center",justifyContent:"space-between"}}>
+            <View style={{flexDirection:"row", marginLeft:10}}>
+              <FontAwesome name="arrow-left" size={20} color={'#4dabf7'}/>
+              <Text style={styles.text}>SKIP</Text>
+            </View>              
+            <View style={{flexDirection:"row", marginRight:10}}>
+              <Text style={styles.text}>LIKE</Text>
+              <FontAwesome name="arrow-right" size={20} color={'#e64980'}/>
+            </View>
+            
+          </View>                 
+        </View>
+        <View style={{flex: 11}}>
             {profiles.slice(profileIndex, profileIndex + 20).reverse().map((profile) => {
             return (
               <Card
@@ -87,3 +115,13 @@ export default class App extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 20,
+    color:"#adb5bd",
+    fontWeight:"bold",
+    marginLeft: 10,
+    marginRight: 10
+  } 
+})

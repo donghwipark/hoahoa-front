@@ -15,6 +15,7 @@
     "react-native-awesome-alerts": "^1.2.0",
     "react-native-datepicker": "^1.7.2",
     "react-native-elements": "^1.0.0",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-progress-bar-classic": "^1.2.1",
     "react-native-switch-selector": "^1.1.11",
     "react-navigation": "^3.1.5",

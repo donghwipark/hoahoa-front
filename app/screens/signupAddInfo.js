@@ -3,6 +3,7 @@ import {
   View,
   Text,
   Image,
+  TextInput,
   StyleSheet,
   TouchableHighlight
 } from 'react-native';
@@ -11,11 +12,20 @@ import moment from 'moment'
 import SwitchSelector from "react-native-switch-selector";
 // will seperately add information about birthday, gender, location  
 import { LinearGradient } from 'expo'
+import { FontAwesome } from '@expo/vector-icons';
+import { Keyboard } from 'react-native' 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 export default class SignUpAddInfo extends React.Component {
+  handleKeyDown (e) {
+    if(e.nativeEvent.key == "Enter"){
+      Keyboard.dismiss()
+    }
+  }
+
   render () {
     return (
-      <View style={styles.container}>
+      <KeyboardAwareScrollView contentContainerStyle={styles.container}>
         <LinearGradient
           colors={['#4dabf7', '#206DDF', '#1864ab']}
           style={{position:'absolute', width:'100%', height:'50%', backgroundColor:'#206DDF'}}
@@ -42,7 +52,7 @@ export default class SignUpAddInfo extends React.Component {
                     let age = moment().diff(value, 'years')
                     this.props.navigation.setParams({ age: age })
                 }}
-                />
+              />
             </View>
           </View>
           <View style={styles.input}>
@@ -65,12 +75,26 @@ export default class SignUpAddInfo extends React.Component {
               />
             </View>
           </View>     
+          <View style={styles.input}>
+            <Text style={styles.text}>About me</Text>
+              <View style={styles.buttoncontainer}>
+                <TextInput 
+                  style = {styles.input}
+                  maxLength = {20}
+                 multiline={true}
+                  placeholder='about me'
+                  onKeyPress={this.handleKeyDown}
+                  onChangeText={(text) => this.setState({aboutme: text})}
+                />
+              <FontAwesome name="info-circle" size={20} color={'#adb5bd'}/>  
+            </View>  
+          </View>
           <View style={styles.input}> 
             <TouchableHighlight 
               style={styles.nextButton}
               onPress={() => {
                 this.props.navigation.navigate('SignUpPhoto', this.props.navigation.state)
-              }}>
+            }}>
               <View style={styles.nextButtoncontainer}>
                 <LinearGradient
                   colors={['#4dabf7', '#206DDF', '#1864ab']}
@@ -84,9 +108,9 @@ export default class SignUpAddInfo extends React.Component {
                 </LinearGradient>
               </View>
             </TouchableHighlight>
-          </View>
+          </View>         
         </View>
-      </View>
+      </KeyboardAwareScrollView>
     )  
   }
 }
@@ -106,13 +130,13 @@ const styles = StyleSheet.create({
     borderColor: 'lightgrey',
     justifyContent:'center' , 
     alignItems: 'center',
-    marginBottom:0,
-    padding:20
+    marginBottom: 80,
+    padding:30
   },
   text:{
     alignItems: 'center',
     justifyContent:'center', 
-    marginBottom: 15,
+    marginBottom:  5,
     marginTop: 15
   },
   datecontainer:{
@@ -127,12 +151,10 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     borderBottomWidth:1,
     borderBottomColor:'#adb5bd',
-    marginBottom: 20,
   },
   input:{
     height: 40,
     width: 250,
-    marginBottom:10,
     flex:1
   },
   nextButton: {
@@ -143,7 +165,6 @@ const styles = StyleSheet.create({
     alignItems:'center',
     justifyContent:'center',  
     borderRadius: 50, 
-    marginBottom: 5, 
   },
   nextButtoncontainer: {
     flex:1,

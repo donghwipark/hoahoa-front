@@ -15,7 +15,7 @@ export default class SelectScrollView extends React.Component {
       <TouchableHighlight 
         style={{
           flexDirection:'row',
-          height:100,
+          height:'70%',
           alignItems:'center',
           justifyContent:'center',  
           backgroundColor:this.props.color,
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   buttonText: {
     color : 'white',
     fontSize:20,
-    padding:20
+    padding:5
   } 
 })
 
