@@ -43,7 +43,12 @@ export default class App extends Component {
       let getProfiles = []
       const response = await fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/")
       const json = await response.json()
-      // need to get rid of my id
+        console.log(json)
+        for (let i = json.length - 1; i > 0; i--) {
+          let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+          [json[i], json[j]] = [json[j], json[i]]; // swap elements
+        }
+        console.log(json)        
         json.map((el) => {
         if(el.email !== this.props.navigation.state.params){
           getProfiles.push(el)
@@ -97,7 +102,9 @@ export default class App extends Component {
           </View>                 
         </View>
         <View style={{flex: 11}}>
-            {profiles.slice(profileIndex, profileIndex + 20).reverse().map((profile) => {
+            {
+              
+              profiles.slice(profileIndex, profileIndex + 20).reverse().map((profile) => {
             return (
               <Card
                 key={profile.id}

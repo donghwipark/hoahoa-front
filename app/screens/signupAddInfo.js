@@ -84,7 +84,7 @@ export default class SignUpAddInfo extends React.Component {
                  multiline={true}
                   placeholder='about me'
                   onKeyPress={this.handleKeyDown}
-                  onChangeText={(text) => this.setState({aboutme: text})}
+                  onChangeText={(value) => this.props.navigation.setParams({ aboutme: value })}
                 />
               <FontAwesome name="info-circle" size={20} color={'#adb5bd'}/>  
             </View>  

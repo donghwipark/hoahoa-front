@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^9.0.0",
+    "axios": "^0.18.0",
     "expo": "^32.0.0",
     "native-base": "^2.11.0",
     "react": "16.5.0",
@@ -15,6 +16,7 @@
     "react-native-awesome-alerts": "^1.2.0",
     "react-native-datepicker": "^1.7.2",
     "react-native-elements": "^1.0.0",
+    "react-native-image-picker": "^0.28.0",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-progress-bar-classic": "^1.2.1",
     "react-native-switch-selector": "^1.1.11",

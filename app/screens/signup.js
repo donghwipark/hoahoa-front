@@ -18,8 +18,7 @@ export default class SignUp extends React.Component {
     nickname: '',
     aboutme:'',
     age:'',
-    gender:'',
-    photo:'',
+    gender:'female',
   }
 
   validation(values) {

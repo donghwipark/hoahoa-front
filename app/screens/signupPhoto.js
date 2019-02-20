@@ -10,32 +10,40 @@ import {
 import { ImagePicker, Permissions, LinearGradient } from 'expo';
 // will seperately add information about birthday, gender, location  
 
-
 export default class SignUpPhoto extends React.Component {
   state = {
     photo:'https://s3.ap-northeast-2.amazonaws.com/hoa-hoa-project/donghwipark.png'
   }
 
-  handleUploadPhoto = (email) => {
-    console.log()
-    fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/${email}/picture`, {
+  handleUploadPhoto = (id) => {
+
+    let photo = { uri: this.state.photo}
+    const formData = new FormData()
+    formData.append('file', {uri: photo.uri, name: 'image.jpg', type: 'multipart/form-data'})
+
+    fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/${id}/picture`, {
       method: "POST",
-      body: createFormData(this.state.photo, { userId: email })
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: formData
     })
       .then(response => response.json())
       .then(response => {
-        console.log("upload succes", response);
-        alert("Upload success!");
-        this.props.navigation.setParams({ photo: response })
+        if(response){
+          console.log("upload succes", response.location);
+          alert("Upload success!");
+          return true
+        }
       })
       .catch(error => {
         console.log("upload error", error);
         alert("Upload failed!");
+        return false
       });
   };
 
-  signUp = (email) => {
-    this.handleUploadPhoto(email)
+  signUp = () => {
     const a = this.props.navigation.state.params.params
     return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/signup",{
       method:'POST',
@@ -46,10 +54,12 @@ export default class SignUpPhoto extends React.Component {
     })
       .then((response) => response.json())
       .then((response) => {
-        if(response) {
+        if(this.handleUploadPhoto(response.id)){
+          alert('Sign up success, Please Sign in')
+          this.props.navigation.setParams({ photo: response })
           alert('Sign up success, Please Sign in')
           this.props.navigation.navigate('Login')
-        }
+        }        
       })
       .catch((error) => {
         console.error(error)  
@@ -60,9 +70,11 @@ export default class SignUpPhoto extends React.Component {
     await Permissions.askAsync(Permissions.CAMERA_ROLL);
     const { cancelled, uri } = await ImagePicker.launchImageLibraryAsync({
       aspect: 1,
-      allowsEditing: true,
+      allowsEditing: false,
     });
-    if (!cancelled) this.setState({ photo: uri });
+    if (!cancelled) {
+      this.setState({ photo: uri });
+    }
   };
 
   takePicture = async () => {
@@ -74,7 +86,6 @@ export default class SignUpPhoto extends React.Component {
   };
 
   render () {
-    const { email } = this.props.navigation.state.params.params
     return (
       <View style={styles.container}>
         <LinearGradient
@@ -92,7 +103,7 @@ export default class SignUpPhoto extends React.Component {
         <View style={styles.signin}>          
           <View style={styles.containerPhoto}>
             <Text style={styles.text}>Upload your photo</Text>
-            <Image style={styles.image} source={{ uri: this.state.image }} />
+            <Image style={styles.image} source={{ uri: this.state.photo }} />
             <View style={styles.row}>
               <Button onPress={this.selectPicture}>Gallery</Button>
               <Button onPress={this.takePicture}>Camera</Button>
@@ -100,7 +111,9 @@ export default class SignUpPhoto extends React.Component {
             <View style={{margin:0}}> 
               <TouchableHighlight 
                 style={styles.nextButton}
-                onPress={this.signUp(email)}>
+                onPress={this.signUp}
+                encType="multipart/form-data"                
+              >                
                 <View style={styles.nextButtoncontainer}>
                   <LinearGradient
                       colors={['#4dabf7', '#206DDF', '#1864ab']}
