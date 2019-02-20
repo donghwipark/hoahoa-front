@@ -4,6 +4,7 @@ import {
    Text,
    View,
    Image,
+   TouchableHighlight
 } from 'react-native';
 import BubbleSelection from '../components/bubbleSelection'
 import { LinearGradient } from 'expo';
@@ -13,13 +14,15 @@ export default class InterestsSetting extends React.Component {
     interests:[]
   }
   
-  sendUserInterest () {
-    return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/{id}/interest",{
+  sendUserInterest (id) {
+    console.log(id)
+    return fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/${id}/interest`,{
       method:'POST',
       headers: {
+          
           "Content-Type": "application/json",
       },
-      body: JSON.stringify(a)  
+      body: JSON.stringify(this.state.interests)  
     })
       .then((response) => response.json())
       .then((response) => {
@@ -34,7 +37,8 @@ export default class InterestsSetting extends React.Component {
   }
 
   render() {
-    const email = this.props.navigation.state.params
+    const id = this.props.navigation.state.params
+    console.log(id)
     return (
       <View style={styles.container}>
         <View style={styles.upContainer}>
@@ -47,9 +51,18 @@ export default class InterestsSetting extends React.Component {
           </LinearGradient>  
           <Text style={styles.text}>What are your interests?</Text>
           <Text style={styles.underText}>find your interest keywords</Text>
+          <View style={{position:'relative', justifyContent:'center', top:'45%'}}> 
+            <TouchableHighlight 
+              style={styles.nextButton}
+              onPress={() => {this.sendUserInterest(id)}}>
+              <View style={styles.nextButtoncontainer}>
+                <Text style={styles.buttonText}>Apply</Text>
+              </View>
+            </TouchableHighlight>
+          </View>
         </View>       
         <View style={styles.bubble}>
-          <BubbleSelection interests={this.state.interests} email={email} />
+          <BubbleSelection interests={this.state.interests} />
         </View>
       </View>
     );
@@ -86,5 +99,26 @@ const styles = StyleSheet.create({
     marginBottom:5,
     marginTop:5,
     padding:15
+  },
+  nextButton: {
+    height:50,
+    width:100,
+    position:"absolute",
+    backgroundColor:"white",
+    flexDirection:'column',
+    alignItems:'center',
+    justifyContent:'center',  
+    borderRadius: 50, 
+    marginBottom: 10, 
+  },
+  nextButtoncontainer: {
+    flex:1,
+    flexDirection:'row',
+    alignItems:'center',
+    justifyContent:'center'  
+  },
+  buttonText: {
+    color:'grey',
+    fontSize:30
   }
 });

@@ -17,7 +17,7 @@ export default class Profile extends React.Component {
     const imageSize = PixelRatio.getPixelSizeForLayoutSize(50)
     const image = this.props.navigation.state.params.userInfo.pictures[0].picture_address
     const nickname = this.props.navigation.state.params.userInfo.nickname
-    const { email } = this.props.navigation.state.params.userInfo
+    const { id } = this.props.navigation.state.params.userInfo
     return (
       <View style={{flex:1}}>  
         <View style={styles.container}>
@@ -95,7 +95,7 @@ export default class Profile extends React.Component {
           </View>
           <View style={{flex:1, flexDirection:'row'}}>
             <Button
-              onPress={ () => { this.props.navigation.navigate('InterestsSetting', email)} }
+              onPress={ () => { this.props.navigation.navigate('InterestsSetting', id)} }
               title="Interests Setting"
               icon={{
                 name: 'heart',

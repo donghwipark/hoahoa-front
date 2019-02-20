@@ -80,7 +80,7 @@ export default class SignUpAddInfo extends React.Component {
               <View style={styles.buttoncontainer}>
                 <TextInput 
                   style = {styles.input}
-                  maxLength = {20}
+                  maxLength = {50}
                  multiline={true}
                   placeholder='about me'
                   onKeyPress={this.handleKeyDown}
