@@ -24,11 +24,11 @@ export default class PrivateDetails extends React.Component {
         >
         </LinearGradient>  
         <Image 
-          style={{width:100, height:100, backgroundColor:'white', borderRadius: 10, marginTop:60}}
+          style={{width:100, height:100, backgroundColor:'white', marginBottom:10,borderRadius: 10, top:'10%'}}
           source={require('../images/homeIcon.png')}
         />
-        <Text style={{fontSize:30, color:'#fff', marginBottom:30}}>Private Setting</Text>
-        <View>        
+        <Text style={{fontSize:30, color:'#fff', marginBottom:30, top:'10%'}}>Private Setting</Text>
+        <View style={{top:'10%'}}>        
           <PrivateDetailChange onDelete={ () => {this.props.navigation.navigate('Start')} } />
         </View>
       </View>

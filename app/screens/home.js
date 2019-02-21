@@ -17,7 +17,7 @@ import { FontAwesome } from '@expo/vector-icons'
 export default class App extends Component {
   state = {
     profileIndex: 0,
-    userInfo: null,     
+    userInfo: null,
     interests:[],
     photos:[],
     profiles:[]  
@@ -74,7 +74,7 @@ export default class App extends Component {
         <View style={{flex: 2, flexDirection:"row", alignItems:'stretch', justifyContent:'space-between', marginBottom:10}}>
           <HomeSettingButton onPress={ () => {this.props.navigation.navigate('Profile', { userInfo : this.state.userInfo})}}/>
           <HomeButton />          
-          <HomeMatchesButton onPress={ () => {this.props.navigation.navigate('Matches', /*{need to push user id to get the information about login user to get the Mathches info}*/)}}/>
+          <HomeMatchesButton mathches={this.state.profiles} onPress={ () => {this.props.navigation.navigate('Matches', { userInfo : this.state.userInfo})}}/>
         </View>
         <View style={{flex:2, backgroundColor:'white', flexDirection:"row", padding:6}}>
           <ScrollView horizontal={true}>

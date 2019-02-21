@@ -11,7 +11,7 @@ import { LinearGradient } from 'expo';
 
 export default class Profile extends React.Component {
   componentDidMount () {
-    // need to get the functions to get user information before rending from the props
+    // TODO : need to get the functions to get user information before rending from the props
   }
   render() {
     const imageSize = PixelRatio.getPixelSizeForLayoutSize(50)

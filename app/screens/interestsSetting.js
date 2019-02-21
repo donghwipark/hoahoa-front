@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   },
   nextButton: {
     height:50,
-    width:100,
+    width:200,
     position:"absolute",
     backgroundColor:"white",
     flexDirection:'column',
@@ -119,6 +119,7 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color:'grey',
-    fontSize:30
+    fontSize:30,
+    fontWeight:"bold",
   }
 });

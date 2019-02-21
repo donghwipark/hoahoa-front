@@ -46,28 +46,27 @@ export default class PrivateDetailChange extends React.Component {
   signUp = () => {
     this.props.navigation.navigate('Home')
   }
-  changePassword () {
-    console.log('change password here')
-//   const request = async () => {
-//     let getMatches = []
-//     const response = await fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/users/delete/${id}`)
-//     const json = await response.json()
-//     json.map((el) => { getMatches.push(el) })
-//     this.setState({matches : getMatches})
-//   }
-//   request()
-  }
+
   logout () {
     console.log('logout func here')
-//   const request = async () => {
-//     let getMatches = []
-//     const response = await fetch(`http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/logout`)
-//     const json = await response.json()
-//     json.map((el) => { getMatches.push(el) })
-//     this.setState({matches : getMatches})
-//   }
-//   request()
+    const a = this.props.navigation.state.params.params
+    return fetch("http://ec2-18-217-132-110.us-east-2.compute.amazonaws.com:3005/api/signup",{
+      method:'POST',
+      headers: {
+          "Content-Type": "application/json",
+      },
+      body: JSON.stringify(a)  
+    })
+      .then((response) => response.json())
+      .then((response) => {
+          alert('Sign up success, Please Sign in')
+          this.props.navigation.navigate('Login')
+      })
+      .catch((error) => {
+        console.error(error)  
+    })
   }
+
   deleteID = () => {
 //   const request = async () => {
 //     let getMatches = []
@@ -85,60 +84,10 @@ export default class PrivateDetailChange extends React.Component {
 
     return (
       <View style={styles.changePassword}>       
-        <View>
-          <Text style={styles.text}>Current Password</Text>
-          <View style={styles.buttoncontainer}>
-            <TextInput style = {styles.input}
-              placeholder='    Password'
-              onChangeText={(text) => this.setState({password: text})}
-            />
-            <Entypo name="eye" size={20} color={'#adb5bd'}/> 
-          </View>  
-        </View>
-        <View>
-          <Text style={styles.text}>Changing Password</Text>
-          <View style={styles.buttoncontainer}>
-            <TextInput style = {styles.input}
-              placeholder='    Password'
-              secureTextEntry
-              onChangeText={(text) => this.setState({password: text})}
-            />
-            <Entypo name="eye" size={20} color={'#adb5bd'}/>  
-          </View>  
-        </View>
-        <View>
-          <Text style={styles.text}>Checking Password</Text>
-          <View style={styles.buttoncontainer}>
-            <TextInput style = {styles.input}
-              placeholder='    Checking password'
-              secureTextEntry
-              onChangeText={(text) => this.setState({password: text})}
-            />
-            <Entypo name="eye" size={20} color={'#adb5bd'}/>  
-          </View>  
-        </View >
         <View style={{marginBotom:20}}> 
           <TouchableHighlight 
             style={styles.nextButton}
-            onPress={this.changePassword}>
-            <View style={styles.nextButtoncontainer}>
-              <LinearGradient
-                  colors={['#4dabf7', '#206DDF', '#1864ab']}
-                  style={{ alignItems: 'center', borderRadius: 50,    height:50,    flexDirection:'row',
-                  justifyContent:'center', width:250, 
-                }}
-                  start={{ x: 0, y: 1 }}
-                  end={{ x: 1, y: 1 }}
-              >
-                <Text style={styles.buttonText}>Change</Text>
-              </LinearGradient>  
-            </View>
-          </TouchableHighlight>
-        </View>
-        <View style={{marginBotom:20}}> 
-          <TouchableHighlight 
-            style={styles.nextButton}
-            onPress={this.logout}>
+            onPress={onDelete}>
             <View style={styles.nextButtoncontainer}>
               <LinearGradient
                 colors={['#4dabf7', '#206DDF', '#1864ab']}
@@ -241,6 +190,7 @@ const styles = StyleSheet.create({
     borderColor: 'lightgrey',
     justifyContent:'center' , 
     alignItems: 'center',
-    marginBottom:15
+    marginBottom:15,
+    top:'40%'
   },
 })
